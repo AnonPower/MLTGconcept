@@ -1,0 +1,31 @@
+<characters>
+	<String>
+		<pony>
+			<earth>
+				<character="Applejack">
+				<character="Pinkie Pie">
+			</earth>
+			<pegasus>
+				<character="Fluttershy">
+				<character="Rainbow Dash">
+			</pegasus>
+			<unicorn>
+				<character="Rarity">
+				<character="Twilight Sparkle">
+			</unicorn>
+		</pony>
+		<dragon>
+			<baby>
+				<character="Spike">
+			</baby>
+		</dragon>
+		<user>
+			<direct>
+				<character="player">
+				<character="myself">
+				<character="me">
+				<character="self">
+			</direct>
+		</user>
+	</String>
+</characters>

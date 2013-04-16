@@ -1,0 +1,10 @@
+<useLinking>
+	<String>
+		<cat>
+			<subCat>
+				<linking="with">
+				<linking="using">
+			</subCat>
+		</cat>
+	</String>
+</useLinking>
