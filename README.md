@@ -66,3 +66,5 @@ Subject to additions
 
 
 Read more: http://iclophard.boards.net/thread/43/project-objectives#ixzz2Qeh8GBM1
+
+NB: I have no idea why most .java files are camelback. They aren't supposed to be like that, they were refactored a long time ago.
