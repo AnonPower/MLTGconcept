@@ -3,91 +3,31 @@
 		<traits>
 			<physical>
 				<attribute="strength">
-					<markers>
-						<range="bad-good">
-					</markers>
 				<attribute="agility">
-					<markers>
-						<range="bad-good">
-					</markers>
 				<attribute="dexterity">
-					<markers>
-						<range="bad-good">
-					</markers>
 				<attribute="endurance">
-					<markers>
-						<range="bad-good">
-					</markers>
 			</physical>
 			<mental>
 				<attribute="intelligence">
-					<markers>
-						<range="bad-good">
-					</markers>
 				<attribute="perception">
-					<markers>
-						<range="bad-good">
-					</markers>
 				<attribute="temperance">
-					<markers>
-						<range="bad-good">
-					</markers>
 				<attribute="sanity">
-					<markers>
-						<range="bad-good">
-					</markers>
 			</mental>
 		</traits>
 		<currents>
 			<physical>
 				<attribute="health">
-					<markers>
-						<range="bad-good">
-						<base="need">
-					</markers>
 				<attribute="stamina">
-					<markers>
-						<range="bad-good">
-					</markers>
 				<attribute="thirst">
-					<markers>
-						<range="good-bad">
-						<base="need">
-					</markers>
 				<attribute="hunger">
-					<markers>
-						<range="good-bad">
-						<base="need">
-					</markers>
 				<attribute="groom">
-					<markers>
-						<range="good-bad">
-					</markers>
 				<attribute="pee">
-					<markers>
-						<range="good-bad">
-						<base="need">
-					</markers>
 				<attribute="poop">
-					<markers>
-						<range="good-bad">
-						<base="need">
-					</markers>
 			</physical>
 			<mental>
 				<attribute="happiness">
-					<markers>
-						<range="bad-good">
-					</markers>
 				<attribute="boredom">
-					<markers>
-						<range="good-bad">
-					</markers>
 				<attribute="anger">
-				<attribute="loneliness">
-					<markers>
-						<range="good-bad">
-					</markers>
 				<attribute="libido">
 			</mental>
 		</currents>

@@ -1,70 +1,51 @@
 import java.io.File;
 import java.io.IOException;
-
-
-public class Attributes
-{	
+public class Attributes {
 	public int focusIntData = -1;
 	public String focusID = null;
-	
-	public void findCharacterHappiness(String charName) throws IOException, InterruptedException
-	{
+	public void findCharacterHappiness(String charName) throws IOException,
+			InterruptedException {
 		StringMod sM = new StringMod();
-		
 		XMLParse character = new XMLParse();
-		
 		String charFile = sM.stringToEffectsTarget(charName);
-		
 		File file = new File("save/charXMLs/" + charFile);
-		
-		if(file.exists())
-		{
+		if (file.exists()) {
 			character.xMLParser("save/charXMLs/" + charFile);
-		}
-		else
-		{
+		} else {
 			character.xMLParser("charXMLs/" + charFile);
 		}
-		
 		int happiness = findAttributeData("happiness", character);
-		
 		boolean found;
-		if(happiness == -1)
-		{
+		if (happiness < 0) {
 			found = false;
-		}
-		else
-		{
+		} else {
 			found = true;
 		}
-		if(found)
-		{
+		if (found) {
 			focusIntData = happiness;
 			focusID = "happiness";
 		}
 	}
-	
-	public int findAttributeData(String attributeToFind, XMLParse character)
-	{
+	public int findAttributeData(String attributeToFind, XMLParse character) {
 		int attributeValue = -1;
-		for(int x = 0; x < character.getTID1().size(); x++)
-		{
-			if(character.getTID1().get(x).equalsIgnoreCase(attributeToFind))
-			{
+		for (int x = 0; x < character.getTID1().size(); x++) {
+			if (character.getTID1().get(x).equalsIgnoreCase(attributeToFind)) {
 				attributeValue = character.getTIntD().get(x);
 				break;
 			}
 		}
 		return attributeValue;
 	}
-	
-	public String getFocusID()
-	{
+	public void setFocusID(String in) {
+		focusID = in;
+	}
+	public void setFocusData(int in) {
+		focusIntData = in;
+	}
+	public String getFocusID() {
 		return focusID;
 	}
-	
-	public int getFocusIntData()
-	{
+	public int getFocusIntData() {
 		return focusIntData;
 	}
 }

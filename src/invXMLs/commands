@@ -1,193 +1,166 @@
 <commands>
 	<String>
 		<action>
+			<movement>
+				<command="move">
+					<markers>
+						<toLinking="to_towards_">
+						<type="movement">
+					</markers>
+				<command="walk">
+					<markers>
+						<toLinking="to_towards_">
+						<type="movement">
+					</markers>
+				<command="run">
+					<markers>
+						<toLinking="to_towards_">
+						<type="movement">
+					</markers>
+				<command="go">
+					<markers>
+						<toLinking="to_towards_">
+						<type="movement">
+					</markers>
+				<command="travel">
+					<markers>
+						<toLinking="to_towards_">
+						<type="movement">
+					</markers>
+				<command="head">
+					<markers>
+						<toLinking="to_towards_">
+						<type="movement">
+					</markers>
+			</movement>
 			<notSorted>
-				<command="jump">
-				<command="cum">
-				<command="fuck">
-				<command="swing">
+				<command="hug">
 					<toDo>
-						<target_Integer_currents_mental_happiness-"1">
+						<target_Integer_currents_mental_happiness+"2">
 					</toDo>
-				<command="sneeze">
+					<markers>
+						<toLinking="false2">
+						<type="emote">
+					</markers>
+				<command="kiss">
 					<toDo>
-						<target_Integer_currents_mental_happiness-"1">
+						<target_Integer_currents_mental_happiness+"3">
 					</toDo>
-				<command="take">
-				<command="get">
-				<command="pick up">
-				<command="push">
+					<markers>
+						<toLinking="false2">
+						<type="emote">
+					</markers>
+				<command="poke">
+					<markers>
+						<toLinking="false">
+						<type="kinetic">
+					</markers>
+				<command="slap">
 					<toDo>
-						<target_Integer_currents_mental_happiness-"1">
+						<target_Integer_currents_mental_happiness-"3">
 					</toDo>
-				<command="gather">
-				<command="pull">
-				<command="prank">
-					<toDo>
-						<target_Integer_currents_mental_happiness-"1">
-					</toDo>
-				<command="trick">
-					<toDo>
-						<target_Integer_currents_mental_happiness-"1">
-					</toDo>
-				<command="yawn">
-				<command="tickle">
-					<toDo>
-						<target_Integer_currents_mental_happiness+"1">
-					</toDo>
-				<command="play">
-					<toDo>
-						<target_Integer_currents_mental_happiness+"1">
-					</toDo>
-				<command="barf">
-				<command="frown">
-				<command="cry">
+					<markers>
+						<toLinking="false">
+						<type="kinetic">
+					</markers>
 				<command="smile">
 					<toDo>
 						<target_Integer_currents_mental_happiness+"1">
 					</toDo>
-				<command="kick">
+					<markers>
+						<toLinking="at">
+						<type="emote">
+					</markers>
+				<command="frown">
 					<toDo>
 						<target_Integer_currents_mental_happiness-"1">
 					</toDo>
-				<command="punch">
+					<markers>
+						<toLinking="at">
+						<type="emote">
+					</markers>
+				<command="cry">
 					<toDo>
 						<target_Integer_currents_mental_happiness-"1">
 					</toDo>
-				<command="grab">
-				<command="cut">
+					<markers>
+						<toLinking="at">
+						<type="emote">
+					</markers>
+				<command="jump">
+					<markers>
+						<toLinking="to_on_inside_into_over_">
+						<type="kinetic">
+					</markers>
+				<command="throw">
 					<toDo>
 						<target_Integer_currents_mental_happiness-"1">
 					</toDo>
-				<command="swat">
+					<markers>
+						<toLinking="to_at_">
+						<type="kinetic">
+					</markers>
+				<command="swing">
 					<toDo>
-						<target_Integer_currents_mental_happiness-"1">
+						<target_Integer_currents_mental_happiness-"2">
 					</toDo>
-				<command="spank">
-				<command="open">
-				<command="close">
-				<command="fondle">
-				<command="mingle">
-				<command="spin">
-				<command="bother">
-					<toDo>
-						<target_Integer_currents_mental_happiness-"1">
-					</toDo>
-				<command="annoy">
-					<toDo>
-						<target_Integer_currents_mental_happiness-"1">
-					</toDo>
-				<command="hug">
-					<toDo>
-						<target_Integer_currents_mental_happiness+"1">
-					</toDo>
-				<command="hump">
-				<command="grope">
-				<command="vomit">
-				<command="cough">
-				<command="growl">
-				<command="snarl">
-				<command="raise">
-				<command="drop">
-				<command="slide">
-				<command="duck">
-				<command="tighten">
-				<command="loosen">
-				<command="tie">
-				<command="give">
-				<command="surrender">
-				<command="buy">
-				<command="sell">
-				<command="barter">
-				<command="trade">
-				<command="kiss">
-					<toDo>
-						<target_Integer_currents_mental_happiness+"1">
-					</toDo>
-				<command="cuddle">
-					<toDo>
-						<target_Integer_currents_mental_happiness+"1">
-					</toDo>
-				<command="punish">
-					<toDo>
-						<target_Integer_currents_mental_happiness-"1">
-					</toDo>
-				<command="slap">
-					<toDo>
-						<target_Integer_currents_mental_happiness-"1">
-					</toDo>
-				<command="break">
-					<toDo>
-						<target_Integer_currents_mental_happiness-"1">
-					</toDo>
-				<command="fix">
-				<command="slap">
-					<toDo>
-						<target_Integer_currents_mental_happiness-"1">
-					</toDo>
-				<command="hit">
-					<toDo>
-						<target_Integer_currents_mental_happiness-"1">
-					</toDo>
-				<command="rape">
-					<toDo>
-						<target_Integer_currents_mental_happiness-"1">
-					</toDo>
-				<command="fart">
-				<command="pee">
-				<command="poop">
-				<command="eat">
-				<command="touch">
-				<command="pout">
-				<command="run">
-				<command="leap">
-				<command="burp">
-				<command="molest">
-				<command="stare">
-				<command="blink">
-				<command="breathe">
-				<command="kill">
-					<toDo>
-						<target_Integer_currents_mental_happiness-"1">
-					</toDo>
-				<command="shoot">
-					<toDo>
-						<target_Integer_currents_mental_happiness-"1">
-					</toDo>
-				<command="smell">
-				<command="lick">
-				<command="drool">
-				<command="fuck">
-				<command="wave">
-					<toDo>
-						<target_Integer_currents_mental_happiness+"1">
-					</toDo>
+					<markers>
+						<toLinking="at_on_">
+						<type="kinetic_effective_">
+					</markers>
 			</notSorted>
 		</action>
 		<verbal>
 			<notSorted>
 				<command="speak">
+					<markers>
+						<toLinking="to">
+						<type="effective">
+					</markers>
 				<command="say">
+					<markers>
+						<toLinking="to">
+						<type="effective">
+					</markers>
 				<command="shout">
+					<markers>
+						<toLinking="at">
+						<type="effective">
+					</markers>
 				<command="whisper">
+					<markers>
+						<toLinking="to">
+						<type="effective">
+					</markers>
 				<command="moan">
+					<markers>
+						<toLinking="false">
+					</markers>
 				<command="laugh">
-					<toDo>
-						<target_Integer_currents_mental_happiness+"1">
-					</toDo>
+					<markers>
+						<toLinking="at">
+						<type="effective">
+					</markers>
 				<command="giggle">
-					<toDo>
-						<target_Integer_currents_mental_happiness+"1">
-					</toDo>
+					<markers>
+						<toLinking="at">
+						<type="effective">
+					</markers>
 				<command="chuckle">
-					<toDo>
-						<target_Integer_currents_mental_happiness+"1">
-					</toDo>
+					<markers>
+						<toLinking="at">
+						<type="effective">
+					</markers>
 				<command="scream">
+					<markers>
+						<toLinking="at">
+						<type="effective">
+					</markers>
 				<command="curse">
-					<toDo>
-						<target_Integer_currents_mental_happiness-"1">
-					</toDo>
+					<markers>
+						<toLinking="at">
+						<type="effective">
+					</markers>
 			</notSorted>
 		</verbal>
 		<system>

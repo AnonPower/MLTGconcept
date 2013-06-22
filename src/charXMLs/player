@@ -48,6 +48,12 @@
 		</tags>
 	</Boolean>
 	<String>
+		<placement>
+			<worldName="Equestria">
+			<regionName="ponyville">
+			<areaName="library-1">
+			<locationName="library">
+		</placement>
 		<characteristics>
 			<physical>
 				<species="pony">

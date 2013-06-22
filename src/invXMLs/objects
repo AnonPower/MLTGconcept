@@ -5,76 +5,12 @@
 				<object="ball">
 				<object="sword">
 				<object="apple">
-				<object="two handed axe">
-				<object="barrel">
-				<object="bad dragon dildo">
-				<object="box">
-				<object="carton">
-				<object="rope">
-				<object="stick">
-				<object="leaf">
-				<object="balloon">
-				<object="cake">
-				<object="book">
-				<object="scroll">
-				<object="puke">
-				<object="jukebox">
-				<object="muffin">
-				<object="bow">
-				<object="arrow">
-				<object="pants">
-				<object="saddle">
-				<object="hat">
-				<object="shirt">
-				<object="trousers">
-				<object="fish">
-				<object="paddle">
-				<object="bowl">
-				<object="plate">
-				<object="fork">
-				<object="knife">
-				<object="hair clip">
-				<object="head band">
-				<object="helmet">
-				<object="pot">
-				<object="pan">
-				<object="sheet">
-				<object="blanket">
-				<object="pillow">
-				<object="bean">
-				<object="stringbean">
-				<object="snowflake">
-				<object="snow">
-				<object="snowball">
-				<object="carrot">
-				<object="tophat">
-				<object="coal">
-				<object="bottle">
-				<object="jar">
-				<object="can">
-				<object="rock">
-				<object="stone">
-				<object="trash">
-				<object="candle">
-				<object="chain">
-				<object="whip">
-				<object="ear rings">
-				<object="table">
-				<object="handcuffs">
-				<object="razor blade">
-				<object="nails">
-				<object="hammer">
-				<object="chainsaw">
-				<object="chains">
-				<object="lawn mower">
-				<object="teeth">
-				<object="dildo">
-				<object="condom">
-				<object="pill">
-				<object="phone">
-				<object="guitar">
-				<object="laptop">
 			</unsorted>
 		</dynamic>
+		<static>
+			<unsorted>
+				<object="podium">
+			</unsorted>
+		</static>
 	</String>
 </objects>
