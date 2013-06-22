@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 
-public class fileWork
+public class FileWork
 {
 	public int fileLineCount(String dir) throws IOException
 	{

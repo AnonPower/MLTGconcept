@@ -2,12 +2,12 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 
-public class xMLWrite
+public class XMLWrite
 {
 	//writes to xmls
 	public void xMLWriter(String tLLID, String filePathOfTarget, String tDTLID, String tCLID, String tSCLID, String tAID, String tStrE, String tBooE, String tIntEEqu, int tIntEAdd, int tIntESub) throws IOException
 	{
-		fileWork fW = new fileWork();
+		FileWork fW = new FileWork();
 		
 		String oldDir = (filePathOfTarget + tLLID),
 			   tmpDir = ( "save" + filePathOfTarget + tLLID),

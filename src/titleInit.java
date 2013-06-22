@@ -1,29 +1,41 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
-public class titleInit
+public class TitleInit
 {
 	String titleGen;
 	
-    public void startTitle() throws IOException
+    public void startTitle() throws IOException, InterruptedException
     {
-    	outManipulation oM = new outManipulation();
+    	OutManipulation oM = new OutManipulation();
+    	PrintWork pW = new PrintWork();
+    	GameMusic gM = new GameMusic();
+    	
+    	System.out.println("May play loud music...");
+    	
+    	oM.pauseTime(4);
+    	pW.clearConsole();
+    	
+    	gM.initMusic("/intro");
+    	gM.musicControl("start");
     	
 		//set and fetch title.
 		setTitleGen("/titleGen/titleList");
-		System.out.print(getTitleGen());
-		oM.pauseTime(2);
+		System.out.print(getTitleGen() + "\n\n\n");
 		
-		System.out.print("\n\n\n");
+		oM.pauseTime(5);
+		
+		oM.waitForEnter();
+		
+		gM.musicControl("stop");
     }
+    
     //Using the random number generator, picks a random line
     //from the titlelist.txt to pick a portion of the title to be displayed
     //each time the game is executed.
 	public void setTitleGen(String dir) throws IOException
 	{
-		fileWork fW = new fileWork();
-		ranGen rG = new ranGen();
+		FileWork fW = new FileWork();
+		RanGen rG = new RanGen();
 		
 		int ranNum,
 			counter = 0;

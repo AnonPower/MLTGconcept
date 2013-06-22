@@ -1,45 +1,50 @@
 import java.io.IOException;
 
 
-public class printWork
+public class PrintWork
 {
 	//Used to clear the game console.
     public void clearConsole()
     {
-       for(int x = 0; x < 5; x++)
-       {
-    	   System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-       }
+       Window.output.setText("");
     }
 	
 	public void printWhoIsHere(String dir) throws IOException, InterruptedException
 	{
-		xMLParse xP = new xMLParse();
+		XMLParse xP = new XMLParse();
+		
 		xP.xMLParser(dir);
 		
-		int x = 0;
+		String output = "";
+		
+		int x = 0,
+			y = 1;
 		
 		try
 		{
 			do
 			{
-				if(x%7 == 0)
+				if(xP.getTStrD().get(x).equals("player") || xP.getTStrD().get(x).equals("me") || xP.getTStrD().get(x).equals("myself") || xP.getTStrD().get(x).equals("self"))
 				{
-					System.out.print("\n");
-				}
-				if(x == xP.getTStrD().size()-2)
-				{
-					System.out.print(xP.getTStrD().get(x) + " and ");
+					y++;
 				}
 				else
 				{
-					if(x == xP.getTStrD().size()-1)
+					if(x == xP.getTStrD().size()-2)
 					{
-						System.out.print(xP.getTStrD().get(x) + " are here.\n");
+						output += (xP.getTStrD().get(x) + " and ");
 					}
 					else
 					{
-						System.out.print(xP.getTStrD().get(x) + ", ");
+						if(x == xP.getTStrD().size()-1)
+						{
+							output += (xP.getTStrD().get(x) + " are here.\n");
+							break;
+						}
+						else
+						{
+							output += (xP.getTStrD().get(x) + ", ");
+						}
 					}
 				}
 				x++;
@@ -48,12 +53,30 @@ public class printWork
 		catch(Exception e)
 		{
 		}
+		
+		if(output.endsWith("are here.\n"))
+		{
+			System.out.print(output);
+		}
+		else
+		{
+			if(output.contains(" and "))
+			{
+				output += (" are here.\n");
+				System.out.print(output);
+			}
+			else
+			{
+				output = output.replace(" " + xP.getTStrD().get(x-y) + ",", " and " + xP.getTStrD().get(x-y) + " are here.\n");
+				System.out.print(output);
+			}
+		}
 	}
 	
 	public void printWhatIsHere(String dir) throws IOException, InterruptedException
 	{
-		xMLParse xP = new xMLParse();
-		stringMod sM = new stringMod();
+		XMLParse xP = new XMLParse();
+		StringMod sM = new StringMod();
 		
 		xP.xMLParser(dir);
 		
@@ -63,10 +86,6 @@ public class printWork
 		{
 			do
 			{
-				if(x%7 == 0)
-				{
-					System.out.print("\n");
-				}
 				if(x == xP.getTStrD().size()-2)
 				{
 					if(sM.ifStartsWithVowel(xP.getTStrD().get(x)))
@@ -115,17 +134,12 @@ public class printWork
 	//will loop through each line in the commands txt until it reaches the end, and will print them to the screen.
 	public void printCommands() throws IOException, InterruptedException
 	{
-		xMLParse xP = new xMLParse();
+		XMLParse xP = new XMLParse();
 		
 		xP.xMLParser("/invXMLs/commands");
 		
 		for(int i = 0; i < xP.getTStrD().size(); i++)
 		{
-			if(i%7 == 0)
-			{
-				System.out.print("\n");
-			}
-			
 			System.out.print(xP.getTStrD().get(i));
 			
 			if(xP.getTStrD().size()-1 != i)

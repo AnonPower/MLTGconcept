@@ -3,34 +3,66 @@
 		<action>
 			<notSorted>
 				<command="jump">
+				<command="cum">
+				<command="fuck">
 				<command="swing">
 					<toDo>
 						<target_Integer_currents_mental_happiness-"1">
 					</toDo>
 				<command="sneeze">
+					<toDo>
+						<target_Integer_currents_mental_happiness-"1">
+					</toDo>
 				<command="take">
 				<command="get">
 				<command="pick up">
 				<command="push">
+					<toDo>
+						<target_Integer_currents_mental_happiness-"1">
+					</toDo>
 				<command="gather">
 				<command="pull">
 				<command="prank">
+					<toDo>
+						<target_Integer_currents_mental_happiness-"1">
+					</toDo>
 				<command="trick">
+					<toDo>
+						<target_Integer_currents_mental_happiness-"1">
+					</toDo>
 				<command="yawn">
 				<command="tickle">
+					<toDo>
+						<target_Integer_currents_mental_happiness+"1">
+					</toDo>
 				<command="play">
+					<toDo>
+						<target_Integer_currents_mental_happiness+"1">
+					</toDo>
 				<command="barf">
 				<command="frown">
 				<command="cry">
-				<command="smile">	
+				<command="smile">
 					<toDo>
-						<target_Integer_currents_mental_happiness+"2">
+						<target_Integer_currents_mental_happiness+"1">
 					</toDo>
 				<command="kick">
+					<toDo>
+						<target_Integer_currents_mental_happiness-"1">
+					</toDo>
 				<command="punch">
+					<toDo>
+						<target_Integer_currents_mental_happiness-"1">
+					</toDo>
 				<command="grab">
 				<command="cut">
+					<toDo>
+						<target_Integer_currents_mental_happiness-"1">
+					</toDo>
 				<command="swat">
+					<toDo>
+						<target_Integer_currents_mental_happiness-"1">
+					</toDo>
 				<command="spank">
 				<command="open">
 				<command="close">
@@ -38,8 +70,17 @@
 				<command="mingle">
 				<command="spin">
 				<command="bother">
+					<toDo>
+						<target_Integer_currents_mental_happiness-"1">
+					</toDo>
 				<command="annoy">
+					<toDo>
+						<target_Integer_currents_mental_happiness-"1">
+					</toDo>
 				<command="hug">
+					<toDo>
+						<target_Integer_currents_mental_happiness+"1">
+					</toDo>
 				<command="hump">
 				<command="grope">
 				<command="vomit">
@@ -60,14 +101,38 @@
 				<command="barter">
 				<command="trade">
 				<command="kiss">
+					<toDo>
+						<target_Integer_currents_mental_happiness+"1">
+					</toDo>
 				<command="cuddle">
+					<toDo>
+						<target_Integer_currents_mental_happiness+"1">
+					</toDo>
 				<command="punish">
+					<toDo>
+						<target_Integer_currents_mental_happiness-"1">
+					</toDo>
 				<command="slap">
+					<toDo>
+						<target_Integer_currents_mental_happiness-"1">
+					</toDo>
 				<command="break">
+					<toDo>
+						<target_Integer_currents_mental_happiness-"1">
+					</toDo>
 				<command="fix">
 				<command="slap">
+					<toDo>
+						<target_Integer_currents_mental_happiness-"1">
+					</toDo>
 				<command="hit">
+					<toDo>
+						<target_Integer_currents_mental_happiness-"1">
+					</toDo>
 				<command="rape">
+					<toDo>
+						<target_Integer_currents_mental_happiness-"1">
+					</toDo>
 				<command="fart">
 				<command="pee">
 				<command="poop">
@@ -82,12 +147,21 @@
 				<command="blink">
 				<command="breathe">
 				<command="kill">
+					<toDo>
+						<target_Integer_currents_mental_happiness-"1">
+					</toDo>
 				<command="shoot">
+					<toDo>
+						<target_Integer_currents_mental_happiness-"1">
+					</toDo>
 				<command="smell">
 				<command="lick">
 				<command="drool">
 				<command="fuck">
 				<command="wave">
+					<toDo>
+						<target_Integer_currents_mental_happiness+"1">
+					</toDo>
 			</notSorted>
 		</action>
 		<verbal>
@@ -98,18 +172,33 @@
 				<command="whisper">
 				<command="moan">
 				<command="laugh">
+					<toDo>
+						<target_Integer_currents_mental_happiness+"1">
+					</toDo>
 				<command="giggle">
+					<toDo>
+						<target_Integer_currents_mental_happiness+"1">
+					</toDo>
 				<command="chuckle">
+					<toDo>
+						<target_Integer_currents_mental_happiness+"1">
+					</toDo>
 				<command="scream">
 				<command="curse">
+					<toDo>
+						<target_Integer_currents_mental_happiness-"1">
+					</toDo>
 			</notSorted>
 		</verbal>
 		<system>
 			<player>
-				<command="clear">
-				<command="quit">
+				<command="system.clear">
+				<command="system.quit">
 				<command="what is here">
 				<command="who is here">
+				<command="player.change name">
+				<command="system.play.song">
+				<command="system.stop.song">
 			</player>
 		</system>
 	</String>

@@ -1,11 +1,12 @@
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-
-public class xMLParse
+public class XMLParse
 {
 	int effectsArrayMeasure = 0;
 	
@@ -13,7 +14,8 @@ public class xMLParse
 	ArrayList<Integer> tIntD = new ArrayList<Integer>(),
 					   tIntEAdd = new ArrayList<Integer>(),
 					   tIntESub = new ArrayList<Integer>(),
-					   tEMat = new ArrayList<Integer>(); //List for matching effects with calling data
+					   tEMat = new ArrayList<Integer>(), //List for matching effects with calling data
+					   tMMat = new ArrayList<Integer>();
 	
 	ArrayList<String> tStrD = new ArrayList<String>(),
 					  tStrE = new ArrayList<String>(),
@@ -28,7 +30,9 @@ public class xMLParse
 	 				  tDTLID = new ArrayList<String>(),
 	 				  tCLID = new ArrayList<String>(),
 	 				  tSCLID = new ArrayList<String>(),
-	 				  tTagA = new ArrayList<String>(); //Storage for xml tags
+	 				  tTagA = new ArrayList<String>(),
+	 				  markerID = new ArrayList<String>(),
+	 				  markerData = new ArrayList<String>(); //Storage for xml tags
 	
 	//Reads in xmls
 	public void xMLParser(String dir) throws IOException, InterruptedException
@@ -38,11 +42,20 @@ public class xMLParse
 		String readIn = "lel";
 		
 		//counters for certain array element adjustments
-		int i = -1,
-			b = -1,
-			c = -1;
+		int i = -1;
 		
-		BufferedReader bis = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(dir)));
+		File file = new File(dir);
+		BufferedReader bis = null;
+		
+		if(file.exists())
+		{
+			FileInputStream in = new FileInputStream(dir);
+			bis = new BufferedReader(new InputStreamReader(in));
+		}
+		else
+		{
+			bis = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(dir)));
+		}
 		
 		readIn = bis.readLine();
 		if(readIn.contains("=") == false && readIn.contains("\"") == false && readIn.contains("</") == false) //list Level
@@ -71,7 +84,11 @@ public class xMLParse
 										readIn = bis.readLine();
 										if(readIn.contains("=") == false && readIn.contains("\"") == false && readIn.contains(tTagA.get(3)) == false && readIn.contains(tTagA.get(2)) == false  && readIn.contains(tTagA.get(1)) == false  && readIn.contains(tTagA.get(0)) == false) //iD1 Level
 										{
-											if(readIn.contains("<toDo>"))//toDo block
+											if(readIn.contains("<markers>") && readIn.contains(tTagA.get(3)) == false && readIn.contains(tTagA.get(2)) == false && readIn.contains(tTagA.get(1)) == false && readIn.contains(tTagA.get(0)) == false)//toDo block
+											{
+												i = markersParse(dir, readIn, i, bis);
+											}
+											if(readIn.contains("<toDo>") && readIn.contains(tTagA.get(3)) == false && readIn.contains(tTagA.get(2)) == false && readIn.contains(tTagA.get(1)) == false && readIn.contains(tTagA.get(0)) == false)//toDo block
 											{
 												i = toDoParse(dir, readIn, i, bis);
 											}
@@ -85,9 +102,13 @@ public class xMLParse
 														readIn = bis.readLine();
 														if(readIn.contains("=") == false && readIn.contains("\"") == false)
 														{
+															if(readIn.contains("<markers>") && readIn.contains(tTagA.get(3)) == false && readIn.contains(tTagA.get(2)) == false && readIn.contains(tTagA.get(1)) == false && readIn.contains(tTagA.get(0)) == false)//toDo block
+															{
+																i = markersParse(dir, readIn, i, bis);
+															}
 															if(readIn.contains("<toDo>") && readIn.contains(tTagA.get(4)) == false && readIn.contains(tTagA.get(3)) == false && readIn.contains(tTagA.get(2)) == false && readIn.contains(tTagA.get(1)) == false && readIn.contains(tTagA.get(0)) == false) //iDToDo2 Level
 															{
-																b = toDoParse(dir, readIn, b, bis);
+																i = toDoParse(dir, readIn, i, bis);
 															}
 															else
 															{
@@ -99,9 +120,13 @@ public class xMLParse
 																		readIn = bis.readLine();
 																		if(readIn.contains("=") == false && readIn.contains("\"") == false)	//iD3 Level
 																		{
+																			if(readIn.contains("<markers>") && readIn.contains(tTagA.get(3)) == false && readIn.contains(tTagA.get(2)) == false && readIn.contains(tTagA.get(1)) == false && readIn.contains(tTagA.get(0)) == false)//toDo block
+																			{
+																				i = markersParse(dir, readIn, i, bis);
+																			}
 																			if(readIn.contains("<toDo>") && readIn.contains(tTagA.get(5)) == false  && readIn.contains(tTagA.get(4)) == false  && readIn.contains(tTagA.get(3)) == false && readIn.contains(tTagA.get(2)) == false && readIn.contains(tTagA.get(1)) == false && readIn.contains(tTagA.get(0)) == false)	//toDo block
 																			{
-																				c = toDoParse(dir, readIn, c, bis);
+																				i = toDoParse(dir, readIn, i, bis);
 																			}
 																			else
 																			{
@@ -115,7 +140,7 @@ public class xMLParse
 																			}
 																			else
 																			{
-																				c = tIDParse(readIn, bis, c, 5);
+																				i = tIDParse(readIn, bis, i, 5);
 																			}
 																		}
 																	}
@@ -129,7 +154,7 @@ public class xMLParse
 															}
 															else
 															{
-																b = tIDParse(readIn, bis, b, 4);
+																i = tIDParse(readIn, bis, i, 4);
 															}
 														}
 													}
@@ -189,6 +214,40 @@ public class xMLParse
 		return tTag;
 	}
 
+	public int markersParse(String dir, String readIn, int i, BufferedReader bis) throws IOException
+	{
+		while(readIn.contains("</markers>") == false)
+		{
+			readIn = bis.readLine();
+			if(readIn.contains("=") == false && readIn.contains("\"") == false|| readIn.contains("</markers>")) //iDToDo1 Level
+			{
+			}
+			else
+			{
+				if(readIn.contains("<") && readIn.contains(">"))
+				{	
+					readIn = xMLTrim(readIn);
+					
+					StringTokenizer st = new StringTokenizer(readIn);
+					
+					String tokenStor;
+					
+					tokenStor = st.nextToken("\"");
+					
+					if(tokenStor.contains("="))
+					{
+						tokenStor = tokenStor.replace("=", "");
+					}
+					
+					markerID.add(tokenStor);
+					markerData.add(st.nextToken("\""));
+					tMMat.add(i);
+				}
+			}
+		}
+		return i;
+	}
+	
 	public int toDoParse(String dir, String readIn, int i, BufferedReader bis) throws IOException
 	{
 		while(readIn.contains("</toDo>") == false)
@@ -252,7 +311,7 @@ public class xMLParse
 		}
 		return i;
 	}
-
+	
 	public int tIDParse(String readIn, BufferedReader bis, int count, int tTagAHi)
 	{
 		boolean canProceed = false;
@@ -458,9 +517,39 @@ public class xMLParse
 		return tStrD;
 	}
 	
+	public ArrayList<Integer> getTIntD()
+	{
+		return tIntD;
+	}
+	
+	public ArrayList<String> getTBooD()
+	{
+		return tBooD;
+	}
+	
+	public ArrayList<String> getTID1()
+	{
+		return tID1;
+	}
+	
+	public ArrayList<String> getTID2()
+	{
+		return tID2;
+	}
+	
+	public ArrayList<String> getTID3()
+	{
+		return tID3;
+	}
+	
 	public ArrayList<Integer> getTEMat()
 	{
 		return tEMat;
+	}
+	
+	public ArrayList<Integer> getTMMat()
+	{
+		return tMMat;
 	}
 	
 	public ArrayList<String> getTLLID()
@@ -513,6 +602,16 @@ public class xMLParse
 		return tIntESub;
 	}
 	
+	public ArrayList<String> getMarkerID()
+	{
+		return markerID;
+	}
+	
+	public ArrayList<String> getMarkerData()
+	{
+		return markerData;
+	}
+	
 	public void xMLArraysWipe()
 	{
 		//reset arrays
@@ -533,6 +632,8 @@ public class xMLParse
 		tCLID.clear();
 		tSCLID.clear();
 		tEMat.clear();
+		markerID.clear();
+		markerData.clear();
 		
 		//reset array measure
 		effectsArrayMeasure = 0;

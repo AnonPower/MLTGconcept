@@ -2,16 +2,20 @@ import java.io.IOException;
 import java.util.*;
 
 
-public class nPCBrain
+public class NPCBrain
 {	
+	String focusID = null;
+	int focusIntData = -1;
+	
+	Attributes attributeClass = new Attributes();
 	//random AI process
 	//to be revised to more procedural based on various parameters
 	public void setNPCCommand() throws IOException, InterruptedException
 	{
-		xMLParse xP = new xMLParse();
-		stringMod sM = new stringMod();
-		xMLDataGrabber xDG = new xMLDataGrabber();
-		ranGen rG = new ranGen();
+		XMLParse xP = new XMLParse();
+		StringMod sM = new StringMod();
+		XMLDataGrabber xDG = new XMLDataGrabber();
+		RanGen rG = new RanGen();
 		
 		ArrayList<String> selectedCommandsList = new ArrayList<String>(),
 				  tarCharacterList = new ArrayList<String>(),
@@ -33,10 +37,13 @@ public class nPCBrain
 		
 		xP.xMLParser("/invXMLs/commands");
 		ArrayList<String> commandList = new ArrayList<String>(xP.getTStrD());
-		toRemove.add("clear");
-		toRemove.add("quit");
+		toRemove.add("system.clear");
+		toRemove.add("system.quit");
 		toRemove.add("what is here");
 		toRemove.add("who is here");
+		toRemove.add("player.change name");
+		toRemove.add("system.play.song");
+		toRemove.add("system.stop.song");
 		commandList = sM.stringArrayCutter(commandList,toRemove);
 		toRemove.clear();
 		
@@ -68,6 +75,7 @@ public class nPCBrain
 				else
 				{
 					doer = characterList.get(x);
+					attributeClass.findCharacterHappiness(doer);
 					input = doer;
 					int d = 0;
 					while(d != 2)
@@ -269,7 +277,7 @@ public class nPCBrain
 					}
 					else
 					{
-						inOutTrans iOT = new inOutTrans();
+						InOutTrans iOT = new InOutTrans();
 						
 						if(selectedCommandsList.contains("speak") || selectedCommandsList.contains("say"))
 						{
@@ -304,6 +312,5 @@ public class nPCBrain
 			{
 			}
 		}
-		
 	}
 }

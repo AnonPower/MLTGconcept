@@ -2,17 +2,18 @@ import java.io.IOException;
 import java.util.Scanner;
 
 
-public class inputCollect
+public class InputCollect
 {
 	private Scanner kb;
 	private Scanner kb2;
+	private final GameMusic gM= new GameMusic();
 	
 	//Sets player input.
 	public void setCommand() throws IOException, InterruptedException
 	{
-		printWork pW = new printWork();
-		inOutTrans iOT = new inOutTrans();
-		uInVerify uIV = new uInVerify();
+		PrintWork pW = new PrintWork();
+		InOutTrans iOT = new InOutTrans();
+		UInVerify uIV = new UInVerify();
 		
 		String commandInput,
 			   playerCommand;
@@ -23,7 +24,6 @@ public class inputCollect
 		
 		while(true)
 		{
-			System.out.print("\n>");
 			commandInput = kb.nextLine();
 			//convert input to all lowercase for simplified checking.
 			commandInput = commandInput.toLowerCase();
@@ -37,7 +37,7 @@ public class inputCollect
 			}
 			else
 			{
-				if(commandInput.equals("clear"))
+				if(commandInput.equals("system.clear"))
 				{
 					pW.clearConsole();
 					continue;
@@ -58,8 +58,46 @@ public class inputCollect
 						}
 						else
 						{
-							//sends to checker to verify the player's command exists, or is possible.
-							uIV.xMLCompInputInit(commandInput);
+							if(commandInput.equals("player.change.name"))
+							{
+								GameDriver.setPlayerName();
+								continue;
+							}
+							else
+							{
+								if(commandInput.equals("system.play.song"))
+								{
+									gM.musicControl("stop");
+									gM.initMusic("");
+									gM.musicControl("start");
+									continue;
+								}
+								else
+								{
+									if(commandInput.equals("system.stop.song"))
+									{
+										gM.musicControl("stop");
+										continue;
+									}
+									else
+									{
+										if(commandInput.startsWith("system.quit.game"))
+										{
+											System.exit(0);
+										}
+										else
+										{
+											if(commandInput.contains("system.quit.game"))
+											{
+												commandInput = commandInput.replace("system.quit.game", "");
+											}
+											
+											//sends to checker to verify the player's command exists, or is possible.
+											uIV.xMLCompInputInit(commandInput);
+										}
+									}
+								}
+							}
 						}
 					}
 				}
@@ -91,7 +129,7 @@ public class inputCollect
 		
 		dialogueTypeStor = dialogueType;
 		
-		inOutTrans cc = new inOutTrans();
+		InOutTrans cc = new InOutTrans();
 		
 		kb2 = new Scanner(System.in);
 		

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 
-public class uInVerify
+public class UInVerify
 {
 	ArrayList<String> commandsArray = new ArrayList<String>(),
 			  charNounsArray = new ArrayList<String>(),
@@ -80,8 +80,8 @@ public class uInVerify
 	
 	public ArrayList<String> inXMLFind(String dir, String input) throws IOException, InterruptedException
 	{
-		xMLParse xP = new xMLParse();
-		inEffects iE = new inEffects();
+		XMLParse xP = new XMLParse();
+		InEffects iE = new InEffects();
 		
 		ArrayList<String>  splitCheckerArray = new ArrayList<String>(),
 						   inputVerified = new ArrayList<String>(),
@@ -153,10 +153,9 @@ public class uInVerify
 					boolean stringBuilderIsValid = false;
 					for(int x = 0; x < xP.getTStrD().size(); x++)
 					{
-						if(xP.getTStrD().get(x).equalsIgnoreCase(stringBuilder))
+						if(stringBuilder.equalsIgnoreCase(xP.getTStrD().get(x)))
 						{
 							stringBuilderIsValid = true;
-							break;
 						}
 					}
 					if(stringBuilderIsValid)
@@ -190,7 +189,7 @@ public class uInVerify
 	
 	public void inputVariablesWipe()
 	{
-		inEffects iE = new inEffects();
+		InEffects iE = new InEffects();
 		
 		//resets all variables for new command
 		commandsArray.clear();

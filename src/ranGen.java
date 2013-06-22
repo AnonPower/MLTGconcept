@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-public class ranGen
+public class RanGen
 {
 	int ranNum;
 	

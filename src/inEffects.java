@@ -1,13 +1,13 @@
 import java.io.IOException;
 
-public class inEffects
+public class InEffects
 {
 	boolean commandHasEffect = false;
 	int commandEffectsCounter = 0;
 	
 	public void checkEffects(String dir, String input) throws IOException, InterruptedException
 	{
-		xMLParse xP = new xMLParse();
+		XMLParse xP = new XMLParse();
 		
 		xP.xMLParser(dir);
 		

@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
 
-public class xMLDataGrabber
+public class XMLDataGrabber
 {
+	public RanGen rG = new RanGen();
+	
 	public String grabCommand(ArrayList<String> commandList, ArrayList<String> selectedCommandsList, String input, String doer, int d)
 	{
-		ranGen rG = new ranGen();
-		
 		int ranNum;
 		
 		try
@@ -43,8 +43,6 @@ public class xMLDataGrabber
 	
 	public String grabTarChar(ArrayList<String> characterList, ArrayList<String> tarCharacterList, String input, int chanceMod, String doer)
 	{
-		ranGen rG = new ranGen();
-		
 		int ranNum;
 		
 		try
@@ -78,8 +76,6 @@ public class xMLDataGrabber
 	
 	public String grabObj(ArrayList<String> objList, ArrayList<String> objsUsedList, String input, int chanceMod)
 	{
-		ranGen rG = new ranGen();
-		
 		int ranNum;
 		
 		try
@@ -105,8 +101,6 @@ public class xMLDataGrabber
 
 	public String grabToTar(ArrayList<String> toTarLinkingList, ArrayList<String> toTarLinkingsUsedList, String input, int chanceMod)
 	{
-		ranGen rG = new ranGen();
-		
 		int ranNum;
 		
 		try
@@ -132,8 +126,6 @@ public class xMLDataGrabber
 	
 	public String grabUse(ArrayList<String> useLinkingList, ArrayList<String> useLinkingsUsedList, String input, int chanceMod)
 	{
-		ranGen rG = new ranGen();
-		
 		int ranNum;
 		
 		try
@@ -155,5 +147,18 @@ public class xMLDataGrabber
 		{
 		}
 		return input;
+	}
+
+	public boolean isInteger(String readIn)
+	{
+		try
+		{
+			Integer.parseInt(readIn);
+			return true;
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
 	}
 }

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class stringMod
+public class StringMod
 {
 	public ArrayList<String> stringArrayCutter(ArrayList<String> arrayIn, ArrayList<String> toRemove)
 	{

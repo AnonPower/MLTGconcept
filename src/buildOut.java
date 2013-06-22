@@ -2,11 +2,11 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 
-public class buildOut
+public class BuildOut
 {
 	public String buildCommOut(ArrayList<String> commandIn, String output, String input, String doer)
 	{
-		stringMod sM = new stringMod();
+		StringMod sM = new StringMod();
 		
 		try
 		{
@@ -285,7 +285,7 @@ public class buildOut
 	
 	public String buildObjOut(ArrayList<String> objIn, String output, String input)
 	{
-		stringMod sM = new stringMod();
+		StringMod sM = new StringMod();
 		
 		try
 		{
@@ -506,6 +506,6 @@ public class buildOut
 
 	public void saveOutput(String outputToAdd) throws InterruptedException
 	{
-		gameDriver.savedOutput += outputToAdd;
+		GameDriver.savedOutput += outputToAdd;
 	}
 }
