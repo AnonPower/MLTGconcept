@@ -10,7 +10,7 @@ public class World {
 		// Static "Equestria" variable for now. TO CHANGE
 		if (isWorldFound(worldFolder, "Equestria")) {
 			//TASK : What to do if world files found.
-			loadWorld(worldFile);
+			loadPlayer(worldFile);
 		} else {
 			createNewWorld();
 		}
@@ -37,7 +37,18 @@ public class World {
 		BufferedReader bis = new BufferedReader(new InputStreamReader(
 				getClass().getResourceAsStream("/invXMLs/_w")));
 	}
-	public void loadWorld(File worldDir) {
+	public void loadPlayer(File worldDir) {
 		//load information from world file to game.
+		File playerFile = new File("/save/charXMLs/player");
+		try {
+			if(playerFile.exists()){
+				
+			}
+			else
+			{
+				
+			}
+		} catch (Exception e) {
+		}
 	}
 }
