@@ -62,7 +62,6 @@ public class EffectOutResponse {
 			String targetAttribute, String tStrE, String tBooE,
 			String tIntEEqu, int tIntEAdd, int tIntESub) {
 		String response = "";
-
 		if (doer.equals(target)) {
 			response = (target + " makes themself sad.");
 		} else {
@@ -80,7 +79,7 @@ public class EffectOutResponse {
 		String response = "";
 
 		if (doer.equals(target)) {
-			response = (target + " and doesn't give a care.");
+			response = (target + " and doesn't care.");
 		} else {
 			if (doer.equals("player")) {
 				doer = GameDriver.getPlayerName();

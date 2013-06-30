@@ -18,9 +18,6 @@ public class GameDriver {
 		UInVerify uIV = new UInVerify();
 		XMLParse xP = new XMLParse();
 		World w = new World();
-		Logger log = new Logger();
-		
-		w.worldInit();
 
 		xP.xMLParser("/invXMLs/attributesList");
 
@@ -30,19 +27,14 @@ public class GameDriver {
 		System.out
 				.print("\nAt anytime you may enter \"help\" for the list of available commands.\n");
 		
-		int turnCounter = 0;
-
+		w.worldInit();
+		
 		while (true) {
 			win.scrollUpdate();
 			iC.setCommand();
 			uIV.inputVariablesWipe();
 			nB.setNPCCommand();
-			log.writeToLog(savedOutput);
 			savedOutput = "";
-			turnCounter++;
-			if(turnCounter == 10){
-				log.autoSave();
-			}
 		}
 	}
 
