@@ -1,0 +1,78 @@
+>Lick the lollipop
+command = lick
+target = lollipop
+
+You lick the lollipop
+(doer) lick the lollipop
+
+Twilight Sparkle = doer
+command = lick
+target = lollipop
+
+NPCBrain:
+Twilight Sparkle lick lollipop
+
+To InOutTrans:
+Twilight Sparkle licks lollipop //to be revised, AI doesn't target objects
+
+NPCBrain:
+doer = Twilight Sparkle
+command = hug
+target = player
+
+Twilight Sparkle hug player
+
+To InOutTrans:
+Twilight Sparkle hugs Sono
+
+>slap twilight sparkle with a stick
+command = slap
+target = twilight sparkle
+object = stick
+
+We wouldn't say: Slap at Twilight Sparkle
+or Slap to Twilight Sparkle
+or Slap in Twilight Sparkle
+
+But we could say: Slap Twilight Sparkle
+
+Notice the lack of a toLinkingVerb. Sometimes we use linking verbs, sometimes we don't, grammar.
+
+We are also using an object in the command which is stick.
+
+so we will include, with a stick.
+
+Slap Twilight Sparkle with a stick.
+
+And since this is player input we will append "You" to signify the player as the doer.
+
+You slap Twilight Sparkle with(using) a stick //using is equivalent as with
+
+NPCBrain:
+doer = Twilight Sparkle
+command = poke
+target = Pinkie Pie //also known as ponk
+object = sword
+
+Twilight Sparkle poke Pinkie Pie with sword
+
+To InOutTrans:
+Twilight Sparkle pokes Pinkie Pie with a sword
+
+Note: If the doer is not the player, the verb or command is pluralized for grammatical purposes and other minor grammartical changes are made.
+
+Sometimes it is important to note there are exceptions.
+
+NPCBrain:
+doer = Applejack
+command = spits
+target = Twilight Sparkle
+object = apple cider
+
+Applejack spit twilight sparkle on lemonade //I believe this is the output from NPCBrain in this particular case it could just be: spit lemonade on twilight sparkle
+
+To InOutTrans:
+Applejack spits lemonade on Twilight Sparkle
+
+It is important to note the different grammatical cases we may have and that we have to handle each one appropriatley using markers and special identifiers for
+different commands.
