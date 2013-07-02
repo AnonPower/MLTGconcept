@@ -10,17 +10,17 @@ public class TitleInit {
 
 		System.out.println("May play loud music...");
 
-		oM.pauseTime(4);
+		//oM.pauseTime(4);
 		pW.clearConsole();
 
-		gM.initMusic("/intro");
+		gM.initMusic("");
 		gM.musicControl("start");
 
 		// set and fetch title.
 		setTitleGen("/titleGen/titleList");
 		System.out.print(getTitleGen() + "\n\n\n");
 
-		oM.pauseTime(5);
+		//oM.pauseTime(5);
 
 		oM.waitForEnter();
 

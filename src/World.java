@@ -9,11 +9,11 @@ public class World {
 	File worldFile;
 	File worldFolder;
 	public void worldInit() {
-		worldFolder = new File("/save/worldXMLs/");
+		worldFolder = new File("save/worldXMLs");
 		// scan folder for world files
 		// Static "Equestria" variable for now. TO CHANGE
 		if (isWorldFound(worldFolder, "Equestria")) {
-			//TASK : What to do if world files found.
+			//TODO: What to do if world files found.
 			loadPlayer(worldFile);
 		} else {
 			createNewWorld();
@@ -21,7 +21,7 @@ public class World {
 	}
 	public boolean isWorldFound(File worldFolder, String worldName) {
 		boolean worldFound = false;
-		File[] worldFiles = worldFolder.listFiles(); //Was a test to try to see what files were returned to the array, it was null
+		File[] worldFiles = worldFolder.listFiles();
 		try {
 			if (worldFolder.listFiles().length != 0) {
 				worldFile = new File(worldFolder
@@ -40,11 +40,11 @@ public class World {
 	//to be done
 	public void createNewWorld() {
 		BufferedReader bis = new BufferedReader(new InputStreamReader(
-				getClass().getResourceAsStream("/invXMLs/_w")));
+				getClass().getResourceAsStream("invXMLs/_w")));
 	}
 	public void loadPlayer(File worldDir) {
 		//load information from world file to game.
-		File playerFile = new File("/save/charXMLs/player");
+		File playerFile = new File("save/charXMLs/player");
 		try {
 			if(playerFile.exists()){
 				System.out.println(findLocation(playerFile));

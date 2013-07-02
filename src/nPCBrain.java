@@ -173,8 +173,8 @@ public class NPCBrain {
 						//end !Who to?
 
 						try {
-							if (selectedCommandsList.isEmpty() || toTarLinkingList.contains("false2")) {
-							} else {
+							if (selectedCommandsList.isEmpty()
+									|| toTarLinkingList.contains("false2")) {} else {
 								//?Are we doing the command with something?
 								//Determined by, will anything available help?
 								xP.xMLParser("/invXMLs/objects");
