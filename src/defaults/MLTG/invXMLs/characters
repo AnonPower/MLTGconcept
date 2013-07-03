@@ -1,0 +1,17 @@
+<characters>
+	<String>
+		<pony>
+			<unicorn>
+				<character="Twilight Sparkle">
+			</unicorn>
+		</pony>
+		<user>
+			<direct>
+				<character="player">
+				<character="myself">
+				<character="me">
+				<character="self">
+			</direct>
+		</user>
+	</String>
+</characters>
