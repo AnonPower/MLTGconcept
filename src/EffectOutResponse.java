@@ -30,7 +30,7 @@ public class EffectOutResponse {
 	throws IOException, InterruptedException {
 		xP.xMLArraysWipe();
 
-		xP.xMLParser("/invXMLs/attributesList");
+		xP.xMLParser("defaults/MLTG/invXMLs/attributesList");
 
 		String responseOut = "";
 

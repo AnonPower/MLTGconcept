@@ -104,7 +104,7 @@ public class PrintWork {
 	public void printCommands() throws IOException, InterruptedException {
 		XMLParse xP = new XMLParse();
 
-		xP.xMLParser("/invXMLs/commands");
+		xP.xMLParser("defaults/MLTG/invXMLs/commands");
 
 		for (int i = 0; i < xP.getTStrD().size(); i++) {
 			System.out.print(xP.getTStrD().get(i));

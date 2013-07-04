@@ -1,7 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-
 public class ValueWork {
 	ArrayList<Integer> sortedBadGoodArray = new ArrayList<Integer>(),
 			sortedGoodBadArray = new ArrayList<Integer>();

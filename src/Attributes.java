@@ -8,11 +8,11 @@ public class Attributes {
 		StringMod sM = new StringMod();
 		XMLParse character = new XMLParse();
 		String charFile = sM.stringToEffectsTarget(charName);
-		File file = new File("save/charXMLs/" + charFile);
+		File file = new File("data/MLTG/save/charXMLs/" + charFile);
 		if (file.exists()) {
-			character.xMLParser("save/charXMLs/" + charFile);
+			character.xMLParser("data/MLTG/save/charXMLs/" + charFile);
 		} else {
-			character.xMLParser("charXMLs/" + charFile);
+			character.xMLParser("defaults/MLTG/charXMLs/" + charFile);
 		}
 		int happiness = findAttributeData("happiness", character);
 		boolean found;

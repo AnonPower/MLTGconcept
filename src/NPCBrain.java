@@ -15,20 +15,24 @@ public class NPCBrain {
 		Relations rel = new Relations();
 		ToLinkingWork tLW = new ToLinkingWork();
 
-		ArrayList<String> selectedCommandsList = new ArrayList<String>(), tarCharacterList = new ArrayList<String>(), objsUsedList = new ArrayList<String>(), useLinkingsUsedList = new ArrayList<String>(), toTarLinkingsUsedList = new ArrayList<String>();
+		ArrayList<String> selectedCommandsList = new ArrayList<String>(),
+				tarCharacterList = new ArrayList<String>(),
+				objsUsedList = new ArrayList<String>(),
+				useLinkingsUsedList = new ArrayList<String>(),
+				toTarLinkingsUsedList = new ArrayList<String>();
 
 		ArrayList<String> toRemove = new ArrayList<String>();
 
 		String doer = null, input = "";
 
-		xP.xMLParser("/invXMLs/characters");
+		xP.xMLParser("defaults/MLTG/invXMLs/characters");
 		ArrayList<String> characterList = new ArrayList<String>(xP.getTStrD());
 		toRemove.add("me");
 		toRemove.add("myself");
 		toRemove.add("self");
 		characterList = sM.stringArrayCutter(characterList, toRemove);
 
-		xP.xMLParser("/invXMLs/commands");
+		xP.xMLParser("defaults/MLTG/invXMLs/commands");
 		ArrayList<String> commandList = new ArrayList<String>(xP.getTStrD());
 		toRemove.add("system.clear");
 		toRemove.add("system.quit");
@@ -40,10 +44,10 @@ public class NPCBrain {
 		commandList = sM.stringArrayCutter(commandList, toRemove);
 		toRemove.clear();
 
-		xP.xMLParser("/invXMLs/objects");
+		xP.xMLParser("defaults/MLTG/invXMLs/objects");
 		ArrayList<String> objList = new ArrayList<String>(xP.getTStrD());
 
-		xP.xMLParser("/invXMLs/useLinking");
+		xP.xMLParser("defaults/MLTG/invXMLs/useLinking");
 		ArrayList<String> useLinkingList = new ArrayList<String>(xP.getTStrD());
 
 		for (int x = 0; x < characterList.size(); x++) {
@@ -92,15 +96,15 @@ public class NPCBrain {
 										.get(xP.tEMat.get(y)));
 							}
 						}
-						//end ?Why are they doing?
+						// end ?Why are they doing?
 
 						rG.setRanNum(useableCommandsList.size());
 						input += " " + useableCommandsList.get(rG.getRanNum());
 						selectedCommandsList.add(useableCommandsList.get(rG
 								.getRanNum()));
-						//end !What are they doing?
+						// end !What are they doing?
 
-						//get toLinking for commands
+						// get toLinking for commands
 						for (int y = 0; y < selectedCommandsList.size(); y++) {
 							try {
 								if (selectedCommandsList.get(y).equals(null)) {
@@ -132,11 +136,11 @@ public class NPCBrain {
 								break;
 							}
 						}
-						//end get toLinking for commands
-						//!Who to?[to include or what]
-						//Determined by relations doer has, who is available
-						//and [desire to improve relations, COMPLEX, TO BE
-						//IMPLEMENTED]
+						// end get toLinking for commands
+						// !Who to?[to include or what]
+						// Determined by relations doer has, who is available
+						// and [desire to improve relations, COMPLEX, TO BE
+						// IMPLEMENTED]
 						rel.fetchRelations(doer);
 						int highestRelation = -999999999;
 						boolean relationFound = false;
@@ -170,14 +174,15 @@ public class NPCBrain {
 							input += " " + doer;
 							tarCharacterList.add(doer);
 						}
-						//end !Who to?
+						// end !Who to?
 
 						try {
 							if (selectedCommandsList.isEmpty()
-									|| toTarLinkingList.contains("false2")) {} else {
-								//?Are we doing the command with something?
-								//Determined by, will anything available help?
-								xP.xMLParser("/invXMLs/objects");
+									|| toTarLinkingList.contains("false2")) {
+							} else {
+								// ?Are we doing the command with something?
+								// Determined by, will anything available help?
+								xP.xMLParser("defaults/MLTG/invXMLs/objects");
 
 								try {
 									if (commandType.contains("effective")

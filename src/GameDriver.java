@@ -19,7 +19,7 @@ public class GameDriver {
 		XMLParse xP = new XMLParse();
 		World w = new World();
 
-		xP.xMLParser("/invXMLs/attributesList");
+		xP.xMLParser("defaults/MLTG/invXMLs/attributesList");
 
 		setPlayerName();
 
@@ -27,10 +27,9 @@ public class GameDriver {
 		System.out
 				.print("\nAt anytime you may enter \"help\" for the list of available commands.\n");
 		
-		w.worldInit();
-		
 		while (true) {
 			win.scrollUpdate();
+			w.worldInit();
 			iC.setCommand();
 			uIV.inputVariablesWipe();
 			nB.setNPCCommand();

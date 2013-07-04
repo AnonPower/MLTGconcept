@@ -14,7 +14,7 @@ public class GameMusic {
 	private int prevAudioPlayed = -1;
 
 	public void initMusic(String dir) throws IOException, IOException {
-		audioFolder = new File("data/audio" + dir);
+		audioFolder = new File("data/MLTG/audio" + dir);
 		File[] listOfAudioFiles = audioFolder.listFiles();
 
 		iN = new FileInputStream(listOfAudioFiles[grabRanMusicFromFolder()]);

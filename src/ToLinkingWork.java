@@ -7,7 +7,7 @@ public class ToLinkingWork {
 			throws IOException, InterruptedException {
 		XMLParse xP = new XMLParse();
 
-		xP.xMLParser("/invXMLs/commands");
+		xP.xMLParser("defaults/MLTG/invXMLs/commands");
 
 		ArrayList<String> toLinkingsForCommand = new ArrayList<String>();
 
@@ -85,7 +85,7 @@ public class ToLinkingWork {
 			InterruptedException {
 		XMLParse xP = new XMLParse();
 
-		xP.xMLParser("/invXMLs/commands");
+		xP.xMLParser("defaults/MLTG/invXMLs/commands");
 
 		ArrayList<String> typeOfCommand = new ArrayList<String>();
 
@@ -165,7 +165,7 @@ public class ToLinkingWork {
 
 		XMLParse xP = new XMLParse();
 
-		xP.xMLParser("/invXMLs/toTarLinking");
+		xP.xMLParser("defaults/MLTG/invXMLs/toTarLinking");
 
 		ArrayList<String> useableLinkings = new ArrayList<String>();
 

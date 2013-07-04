@@ -1,8 +1,6 @@
 import java.io.*;
-
 public class TitleInit {
 	String titleGen;
-
 	public void startTitle() throws IOException, InterruptedException {
 		OutManipulation oM = new OutManipulation();
 		PrintWork pW = new PrintWork();
@@ -17,7 +15,7 @@ public class TitleInit {
 		gM.musicControl("start");
 
 		// set and fetch title.
-		setTitleGen("/titleGen/titleList");
+		setTitleGen("defaults/MLTG/titleGen/titleList");
 		System.out.print(getTitleGen() + "\n\n\n");
 
 		//oM.pauseTime(5);
@@ -26,7 +24,6 @@ public class TitleInit {
 
 		gM.musicControl("stop");
 	}
-
 	// Using the random number generator, picks a random line
 	// from the titlelist.txt to pick a portion of the title to be displayed
 	// each time the game is executed.
@@ -48,7 +45,6 @@ public class TitleInit {
 		// to the randomly generated number.
 		// which determines the same line in the .txt document that will be used
 		// for the title.
-
 		if (ranNum == 0) {
 			titleGen = bis.readLine();
 		} else {
@@ -59,7 +55,6 @@ public class TitleInit {
 		}
 		bis.close();
 	}
-
 	public String getTitleGen() {
 		return titleGen;
 	}

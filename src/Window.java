@@ -29,7 +29,7 @@ public class Window extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		InputStream is = this.getClass().getResourceAsStream(
-				"/font/jd_led5.ttf");
+				"defaults/MLTG/font/jd_led5.ttf");
 
 		Font f = null;
 		try {

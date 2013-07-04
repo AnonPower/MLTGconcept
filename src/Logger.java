@@ -10,7 +10,7 @@ public class Logger {
 	FileWriter fw;
 	File logFile;
 	public void writeToLog(String output) throws IOException{
-		logFile = new File("log");
+		logFile = new File("data/MLTG/save/log");
 		try {
 			if(logFile.exists()){
 				fw = new FileWriter(logFile, true);
@@ -31,17 +31,19 @@ public class Logger {
 			pw.close();
 		}
 	}
-	public void autoSave(){
-		logFile = new File("log");
+	public void autoSave() throws IOException{
+		logFile = new File("data/MLTG/save/log");
 		String readIn;
+		BufferedReader bis = null;
 		try {
 			if(logFile.exists()){
-				BufferedReader bis = new BufferedReader(new InputStreamReader(
+				bis = new BufferedReader(new InputStreamReader(
 						new FileInputStream(logFile)));
 				do{
 					readIn = bis.readLine();
 				}while(readIn.equals(null) == false);
 			}
 		} catch (Exception logNotFoundSa) {}
+		bis.close();
 	}
 }

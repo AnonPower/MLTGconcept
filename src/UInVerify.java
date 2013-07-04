@@ -1,7 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-
 public class UInVerify {
 	ArrayList<String> commandsArray = new ArrayList<String>(),
 			charNounsArray = new ArrayList<String>(),
@@ -19,7 +18,7 @@ public class UInVerify {
 			InterruptedException {
 		inputVariablesWipe();
 
-		String dir = ("/invXMLs/commands");
+		String dir = ("defaults/MLTG/invXMLs/commands");
 		commandsArray.addAll(inXMLFind(dir, input));
 
 		if (commandsArray.isEmpty()) {
@@ -29,44 +28,37 @@ public class UInVerify {
 		}
 
 		if (isRealCommand) {
-			dir = ("/invXMLs/characters");
+			dir = ("defaults/MLTG/invXMLs/characters");
 			charNounsArray.addAll(inXMLFind(dir, input));
 
-			dir = ("/invXMLs/objects");
+			dir = ("defaults/MLTG/invXMLs/objects");
 			objNounsArray.addAll(inXMLFind(dir, input));
 
-			dir = ("/invXMLs/toTarLinking");
+			dir = ("defaults/MLTG/invXMLs/toTarLinking");
 			toTarLinkingArray.addAll(inXMLFind(dir, input));
 
-			dir = ("/invXMLs/useLinking");
+			dir = ("defaults/MLTG/invXMLs/useLinking");
 			useLinkingArray.addAll(inXMLFind(dir, input));
 		}
 	}
-
 	public boolean getIsRealCommand() {
 		return isRealCommand;
 	}
-
 	public ArrayList<String> getCommandsArray() {
 		return commandsArray;
 	}
-
 	public ArrayList<String> getCharNounsArray() {
 		return charNounsArray;
 	}
-
 	public ArrayList<String> getObjNounsArray() {
 		return objNounsArray;
 	}
-
 	public ArrayList<String> getToTarLinkingArray() {
 		return toTarLinkingArray;
 	}
-
 	public ArrayList<String> getUseLinkingArray() {
 		return useLinkingArray;
 	}
-
 	public ArrayList<String> inXMLFind(String dir, String input)
 			throws IOException, InterruptedException {
 		XMLParse xP = new XMLParse();

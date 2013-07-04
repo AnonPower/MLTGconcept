@@ -4,7 +4,7 @@ public class StringWork {
 	public String findRangeTypeOfAttribute(String attribute)
 			throws IOException, InterruptedException {
 		XMLParse xP = new XMLParse();
-		xP.xMLParser("/invXMLs/attributesList");
+		xP.xMLParser("defaults/MLTG/invXMLs/attributesList");
 
 		if (xP.getTStrD().contains(attribute)) {
 			for (int x = 0; x < xP.getTMMat().size(); x++) {

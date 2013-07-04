@@ -71,7 +71,7 @@ public class EffectsOut {
 
 				xP.xMLArraysWipe();
 
-				if (findEffectInInput("/invXMLs/commands", tokenStor, output)) {
+				if (findEffectInInput("defaults/MLTG/invXMLs/commands", tokenStor, output)) {
 					if (xP.getTLLID().get(elementID).equalsIgnoreCase("target")) {
 						if (findTargetOfEffects(output, commandIn, charsUsed,
 								toLinkings)) {
@@ -118,7 +118,7 @@ public class EffectsOut {
 						break;
 					}
 				}
-				if (findEffectInInput("/invXMLs/characters", tokenStor, output)) {
+				if (findEffectInInput("defaults/MLTG/invXMLs/characters", tokenStor, output)) {
 					if (xP.getTLLID().get(elementID).equalsIgnoreCase("target")) {
 						if (findTargetOfEffects(output, commandIn, charsUsed,
 								toLinkings)) {
@@ -165,7 +165,7 @@ public class EffectsOut {
 						break;
 					}
 				}
-				if (findEffectInInput("/invXMLs/objects", tokenStor, output)) {
+				if (findEffectInInput("defaults/MLTG/invXMLs/objects", tokenStor, output)) {
 					if (xP.getTLLID().get(elementID).equalsIgnoreCase("target")) {
 						if (findTargetOfEffects(output, commandIn, charsUsed,
 								toLinkings)) {
@@ -267,7 +267,7 @@ public class EffectsOut {
 					for (int z = 0; z < commandIn.size(); z++) {
 						if (output.contains(commandIn.get(z) + " "
 								+ charsUsed.get(y))) {
-							filePathOfTarget = "/charXMLs/";
+							filePathOfTarget = "defaults/MLTG/charXMLs/";
 							unModTarget = charsUsed.get(y);
 							targetOfEffects = sM
 									.stringToEffectsTarget(charsUsed.get(y));
@@ -283,7 +283,7 @@ public class EffectsOut {
 
 						if (output.contains(toLinkings.get(x) + " "
 								+ charsUsed.get(y))) {
-							filePathOfTarget = "/charXMLs/";
+							filePathOfTarget = "defaults/MLTG/charXMLs/";
 							unModTarget = charsUsed.get(y);
 							targetOfEffects = sM
 									.stringToEffectsTarget(charsUsed.get(y));
@@ -293,7 +293,7 @@ public class EffectsOut {
 							for (int z = 0; z < commandIn.size(); z++) {
 								if (output.contains(commandIn.get(z) + " "
 										+ charsUsed.get(y))) {
-									filePathOfTarget = "/charXMLs/";
+									filePathOfTarget = "defaults/MLTG/charXMLs/";
 									unModTarget = charsUsed.get(y);
 									targetOfEffects = sM
 											.stringToEffectsTarget(charsUsed

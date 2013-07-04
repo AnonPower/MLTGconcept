@@ -34,11 +34,11 @@ public class InputCollect {
 					continue;
 				} else {
 					if (commandInput.equals("who is here")) {
-						pW.printWhoIsHere("/invXMLs/characters");
+						pW.printWhoIsHere("defaults/MLTG/invXMLs/characters");
 						continue;
 					} else {
 						if (commandInput.equals("what is here")) {
-							pW.printWhatIsHere("/invXMLs/objects");
+							pW.printWhatIsHere("defaults/MLTG/invXMLs/objects");
 							continue;
 						} else {
 							if (commandInput.equals("player.change.name")) {

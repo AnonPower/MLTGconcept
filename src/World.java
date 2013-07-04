@@ -9,7 +9,7 @@ public class World {
 	File worldFile;
 	File worldFolder;
 	public void worldInit() throws IOException {
-		worldFolder = new File("save/worldXMLs");
+		worldFolder = new File("data/MLTG/save/worldXMLs");
 		//If specified world is found, load world data from it
 		//If false, either create new world or try loading different one depending on
 		//if any other worlds are available.
@@ -45,10 +45,10 @@ public class World {
 		return worldFound;
 	}
 	//TODO: generate a new world based on using worldName parameter for the name of the New world.
-	public void createNewWorld() {
-		//
+	public void createNewWorld() throws IOException {
 		BufferedReader bis = new BufferedReader(new InputStreamReader(
-				getClass().getResourceAsStream("invXMLs/_w")));
+				getClass().getResourceAsStream("defaults/MLTG/XMLTemplates/_w")));
+		bis.close();
 	}
 	//This method will be used to call functions and methods that are relevant to loading
 	//information that refers to the player.
@@ -57,7 +57,7 @@ public class World {
 	//TODO: Location specific attributes, traits and other information that can be accessed
 	public void loadCharacter(File worldDir, String charDir) throws IOException {
 		//Character xml object: the doer.
-		File playerFile = new File("save/charXMLs/" + charDir);
+		File playerFile = new File("data/MLTG/save/charXMLs/" + charDir);
 		try {
 			if(playerFile.exists()){
 				//debug information

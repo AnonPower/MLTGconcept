@@ -96,7 +96,7 @@ public class FileWork {
 		XMLParse xP = new XMLParse();
 
 		if (type.equalsIgnoreCase("noun")) {
-			xP.xMLParser("/invXMLs/characters");
+			xP.xMLParser("defaults/MLTG/invXMLs/characters");
 
 			if (xP.tID1.contains(toFind) || xP.tID2.contains(toFind)
 					|| xP.tID3.contains(toFind)) {

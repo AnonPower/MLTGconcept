@@ -1,10 +1,8 @@
 import java.io.*;
 import java.util.ArrayList;
-
 public class InOutTrans {
 	boolean isSpeak = false; // for parameter determining whether or not is
 								// whisper dialogue
-
 	public void commandTranslate(ArrayList<String> commandIn,
 			ArrayList<String> charsIn, ArrayList<String> objIn,
 			ArrayList<String> toLinkingIn, ArrayList<String> useLinkingIn,

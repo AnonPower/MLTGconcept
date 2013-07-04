@@ -1,5 +1,4 @@
 import java.io.IOException;
-
 public class OutManipulation {
 	// Used in the code to make the code wait based on seconds before
 	// continuing.
@@ -11,7 +10,7 @@ public class OutManipulation {
 			t1 = System.currentTimeMillis();
 		} while ((t1 - t0) < (n * t2));
 	}
-
+	//wait for user to press enter before continuing.
 	public void waitForEnter() throws InterruptedException, IOException {
 		System.out.print("\n\nPress ENTER to begin...\n\n");
 		System.in.read();

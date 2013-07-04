@@ -18,9 +18,9 @@ public class Relations {
 		StringMod sM = new StringMod();
 		XMLParse xP = new XMLParse();
 
-		String relationsOfPath = "save/charXMLs/relationXMLs/"
+		String relationsOfPath = "data/MLTG/save/charXMLs/relationXMLs/"
 				+ sM.stringToEffectsTarget(relationsOf) + "_relations";
-		String relationsDirectory = "save/charXMLs/relationXMLs";
+		String relationsDirectory = "data/MLTG/save/charXMLs/relationXMLs";
 
 		File directory = new File(relationsDirectory);
 
@@ -75,7 +75,7 @@ public class Relations {
 			String relationsOfFormatted) throws IOException {
 		String readIn;
 
-		File directory = new File("save/charXMLs/relationXMLs");
+		File directory = new File("data/MLTG/save/charXMLs/relationXMLs");
 
 		if (directory.exists()) {
 		} else {
@@ -87,7 +87,7 @@ public class Relations {
 		PrintWriter pW = new PrintWriter(relationFileToMake);
 
 		BufferedReader bis = new BufferedReader(new InputStreamReader(this
-				.getClass().getResourceAsStream("invXMLs/_relations")));
+				.getClass().getResourceAsStream("defaults/MLTG/XMLTemplates/_relations")));
 		do {
 			try {
 				readIn = bis.readLine();
@@ -146,9 +146,9 @@ public class Relations {
 
 		String changesToWrite, readIn;
 
-		File relationFile = new File("save/charXMLs/relationXMLs/"
+		File relationFile = new File("data/MLTG/save/charXMLs/relationXMLs/"
 				+ sM.stringToEffectsTarget(relationsOf) + "_relations");
-		File relationFileWithChanges = new File("save/charXMLs/relationXMLs/"
+		File relationFileWithChanges = new File("data/MLTG/save/charXMLs/relationXMLs/"
 				+ sM.stringToEffectsTarget(relationsOf) + "_relations_tmp");
 
 		changesToWrite = prepWriting(relationFile, relationsOf, targetRelation,
@@ -193,9 +193,9 @@ public class Relations {
 		}
 
 		fW.fileOverwrite(
-				"save/charXMLs/relationXMLs/"
+				"data/MLTG/save/charXMLs/relationXMLs/"
 						+ sM.stringToEffectsTarget(relationsOf) + "_relations",
-				"save/charXMLs/relationXMLs/"
+				"data/MLTG/save/charXMLs/relationXMLs/"
 						+ sM.stringToEffectsTarget(relationsOf)
 						+ "_relations_tmp");
 	}

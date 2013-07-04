@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.StringTokenizer;
-
 public class XMLWrite {
 	// writes to xmls
 	public void xMLWriter(String tLLID, String filePathOfTarget, String tDTLID,
@@ -9,7 +8,7 @@ public class XMLWrite {
 			throws IOException {
 		FileWork fW = new FileWork();
 
-		String oldDir = (filePathOfTarget + tLLID), tmpDir = ("save"
+		String oldDir = (filePathOfTarget + tLLID), tmpDir = ("data/MLTG/save"
 				+ filePathOfTarget + tLLID), readIn = " ", readInStor = null, readInToken = null, tag1C, tag2C, tag3C, tag4C;
 
 		String oldData = null, newData = null;
