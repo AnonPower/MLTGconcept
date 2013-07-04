@@ -19,14 +19,14 @@ public class EffectOutResponse {
 	 * 		@param 'tIntEAdd'		Apply addition
 	 * 		@param 'tIntESub'		Apply substitution
 	 */
-	public 	String responseInit(String 	doer,
-															String 	target,
-															String 	targetAttribute,
-															String 	tStrE,
-															String 	tBooE,
-															String	tIntEEqu,
-															int 		tIntEAdd,
-															int 		tIntESub)
+	public 	String responseInit(	String 	doer,
+					String 	target,
+					String 	targetAttribute,
+					String 	tStrE,
+					String 	tBooE,
+					String	tIntEEqu,
+					int 	tIntEAdd,
+					int 	tIntESub)
 	throws IOException, InterruptedException {
 		xP.xMLArraysWipe();
 
@@ -39,11 +39,11 @@ public class EffectOutResponse {
 		Relations rel = new Relations();
 		
 		int change = vW.determineRelationChange(targetAttribute,
-																						tStrE,
-																						tBooE,
-																						tIntEEqu,
-																						tIntEAdd, 
-																						tIntESub);
+							tStrE,
+							tBooE,
+							tIntEEqu,
+							tIntEAdd, 
+							tIntESub);
 		if (change == 0) {
 			//If nothing is changed, give out a neutral response
 			responseOut = neutralResponse(doer, target);
@@ -51,24 +51,24 @@ public class EffectOutResponse {
 			if (change > 0) {
 				//If there is a positive change, Give a good response!
 				responseOut = goodResponse(	doer,
-																		target,
-																		targetAttribute,
-																		tStrE,
-																		tBooE,
-																		tIntEEqu,
-																		tIntEAdd,
-																		tIntESub);
+								target,
+								targetAttribute,
+								tStrE,
+								tBooE,
+								tIntEEqu,
+								tIntEAdd,
+								tIntESub);
 			} else {
 				if (change < 0) {	
 					//If there is a negative change, Give a bad response!
 					responseOut = badResponse(doer,
-																		target,
-																		targetAttribute,
-																		tStrE,
-																		tBooE,
-																		tIntEEqu, 
-																		tIntEAdd,
-																		tIntESub);
+								target,
+								targetAttribute,
+								tStrE,
+								tBooE,
+								tIntEEqu, 
+								tIntEAdd,
+								tIntESub);
 				}
 			}
 		}
@@ -103,13 +103,13 @@ public class EffectOutResponse {
 	 * 									by player or NPC
 	 */
 	public String goodResponse(	String 	doer,
-															String 	target,
-															String 	targetAttribute,
-															String 	tStrE,
-															String 	tBooE,
-															String 	tIntEEqu,
-															int 		tIntEAdd,
-															int 		tIntESub )
+					String 	target,
+					String 	targetAttribute,
+					String 	tStrE,
+					String 	tBooE,
+					String 	tIntEEqu,
+					int 	tIntEAdd,
+					int 	tIntESub )
 	throws IOException, InterruptedException {
 		String response;
 
@@ -142,14 +142,14 @@ public class EffectOutResponse {
 	 * 	@return String 'response' 		[String]/response said/taken action upon 
 	 * 									by player or NPC
 	 */
-	public String badResponse(String 	doer,
-														String 	target,
-														String 	targetAttribute,
-														String 	tStrE,
-														String 	tBooE,
-														String 	tIntEEqu,
-														int 		tIntEAdd,
-														int 		tIntESub ) 
+	public String badResponse(	String 	doer,
+					String 	target,
+					String 	targetAttribute,
+					String 	tStrE,
+					String 	tBooE,
+					String 	tIntEEqu,
+					int 	tIntEAdd,
+					int 	tIntESub ) 
 	throws IOException, InterruptedException {
 		String response;
 		if (doer.equals(target)) {
