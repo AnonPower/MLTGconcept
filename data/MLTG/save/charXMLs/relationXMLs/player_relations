@@ -1,0 +1,9 @@
+<player_relations>
+	<Integer>
+		<relate>
+			<relation>
+				<Twilight Sparkle="75">
+			</relation>
+		</relate>
+	</Integer>
+</player_relations>

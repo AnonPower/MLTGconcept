@@ -1,0 +1,9 @@
+<twilightSparkle_relations>
+	<Integer>
+		<relate>
+			<relation>
+				<player="1999">
+			</relation>
+		</relate>
+	</Integer>
+</twilightSparkle_relations>
