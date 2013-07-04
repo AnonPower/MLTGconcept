@@ -6,7 +6,7 @@ import java.io.IOException;
 public class EffectOutResponse {
 	XMLParse xP = new XMLParse();
 
-	/*q
+	/*
 	 * Response Initiation
 	 * 	#String
 	 * 		@param 'doer' 			player or character taking an action
