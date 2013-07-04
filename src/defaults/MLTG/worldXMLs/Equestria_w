@@ -1,22 +1,54 @@
 <Equestria_w>
+	<name="Equestria">
+	<description="A land of magical ponies and mythical beasts.">
 	<String>
 		<ponyville_r>
+			<name="ponyville">
+			<description="A big, rural town.">
 			<library-1_a>
+				<name="library-1">
+				<description="Ponyville's library, built into a big tree.">
 				<bathroom_l>
+					<name="bathroom">
+					<description="a bathroom.">
+					<cTo="bedroom_l">
 				</bathroom_l>
 				<bedroom_l>
+					<name="bedroom">
+					<description="a bedroom.">
+					<cTo="bathroom_l&closet_l&balcony_l&library_l">
 				</bedroom_l>
 				<closet_l>
+					<name="closet">
+					<description="a closet.">
+					<cTo="bedroom_l">
 				</closet_l>
 				<balcony_l>
+					<name="balcony">
+					<description="a balcony.">
+					<cTo="bedroom_l">
 				</balcony_l>
 				<library_l>
+					<name="library">
+					<description="a library.">
+					<cTo="bedroom_l&kitchen_l&basement_l">
+					<what-dyn="apple_ball">
+					<what-sta="podium">
 				</library_l>
 				<kitchen_l>
+					<name="kitchen">
+					<description="a kitchen.">
+					<cTo="library_l&pantry_l">
 				</kitchen_l>
 				<pantry_l>
+					<name="pantry">
+					<description="a pantry.">
+					<cTo="kitchen_l">
 				</pantry_l>
 				<basement_l>
+					<name="basement">
+					<description="a basement.">
+					<cTo="library_l">
 				</basement_l>
 			</library-1_a>
 		</ponyville_r>
