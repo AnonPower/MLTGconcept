@@ -17,6 +17,7 @@
 					<name="bedroom">
 					<description="a bedroom.">
 					<cTo="bathroom_l&closet_l&balcony_l&library_l">
+					<whoIs="Twilight Sparkle">
 				</bedroom_l>
 				<closet_l>
 					<name="closet">
@@ -34,6 +35,7 @@
 					<cTo="bedroom_l&kitchen_l&basement_l">
 					<what-dyn="apple_ball">
 					<what-sta="podium">
+					<whoIs="player">
 				</library_l>
 				<kitchen_l>
 					<name="kitchen">

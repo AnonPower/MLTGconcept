@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class GameDriver {
 	static String savedOutput = "",
 			playerName = "",
-			playerLoc = "";
+			characterLoc = "";
 
 	final static Window win = new Window();
 
@@ -34,7 +34,6 @@ public class GameDriver {
 		while (true) {
 			win.scrollUpdate();
 			w.loadCharacter(w.getWorldFile(), "player");
-			System.out.print(playerLoc);
 			iC.setCommand();
 			uIV.inputVariablesWipe();
 			nB.setNPCCommand();
