@@ -1,6 +1,7 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.InputStream;
+
 import javax.swing.JTextField;
 class TextFieldStreamer extends InputStream implements KeyListener {
 	private JTextField tf;

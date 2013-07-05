@@ -1,5 +1,5 @@
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
 
 public class NPCBrain {
 	String focusID = null;

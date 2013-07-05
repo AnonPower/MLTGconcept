@@ -11,10 +11,12 @@ public class XMLParse {
 	// Arrays for storing data from target attributes and for data going to.
 	ArrayList<Integer> tIntD = new ArrayList<Integer>(),
 			tIntEAdd = new ArrayList<Integer>(),
-			tIntESub = new ArrayList<Integer>(),
-			tEMat = new ArrayList<Integer>(), // List for matching effects with
-												// calling data
-			tMMat = new ArrayList<Integer>();
+			tIntESub = new ArrayList<Integer>();
+
+	public ArrayList<Integer> tEMat = new ArrayList<Integer>();
+
+	ArrayList<Integer> // calling data
+	tMMat = new ArrayList<Integer>();
 
 	ArrayList<String> tStrD = new ArrayList<String>(),
 			tStrE = new ArrayList<String>(),
@@ -22,13 +24,29 @@ public class XMLParse {
 												// (null)
 			tBooE = new ArrayList<String>(), // f==false t==true n==no change
 												// (null)
-			tIntEEqu = new ArrayList<String>(), tID1 = new ArrayList<String>(),
-			tID2 = new ArrayList<String>(), tID3 = new ArrayList<String>(),
-			tAID = new ArrayList<String>(), tLLID = new ArrayList<String>(),
-			tDTLID = new ArrayList<String>(), tCLID = new ArrayList<String>(),
-			tSCLID = new ArrayList<String>(), tTagA = new ArrayList<String>(),
-			markerID = new ArrayList<String>(),
-			markerData = new ArrayList<String>(); // Storage for xml tags
+			tIntEEqu = new ArrayList<String>(); // Storage for xml tags
+
+	public ArrayList<String> tID1 = new ArrayList<String>();
+
+	public ArrayList<String> tID2 = new ArrayList<String>();
+
+	public ArrayList<String> tID3 = new ArrayList<String>();
+
+	ArrayList<String> tAID = new ArrayList<String>();
+
+	ArrayList<String> tLLID = new ArrayList<String>();
+
+	ArrayList<String> tDTLID = new ArrayList<String>();
+
+	ArrayList<String> tCLID = new ArrayList<String>();
+
+	ArrayList<String> tSCLID = new ArrayList<String>();
+
+	ArrayList<String> tTagA = new ArrayList<String>();
+
+	ArrayList<String> markerID = new ArrayList<String>();
+
+	ArrayList<String> markerData = new ArrayList<String>();
 
 	// Reads in xmls
 	public void xMLParser(String dir) throws IOException, InterruptedException {

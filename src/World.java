@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 public class World {
-	File worldFile;
-	File worldFolder;
+	private static File worldFile;
+	static File worldFolder;
 	public void worldInit() throws IOException {
 		worldFolder = new File("data/MLTG/save/worldXMLs");
 		//If specified world is found, load world data from it
@@ -16,7 +16,7 @@ public class World {
 		if (isWorldFound(worldFolder, "Equestria")) {
 			//TODO FINISH: What to do if world files found.
 			//TODO: Include dynamic character parameter for use by NPCs, not just player
-			loadCharacter(worldFile, "player");
+			loadCharacter(getWorldFile(), "player");
 		} else {
 			//Call method to generate new world in save/worldXMLs creating a worldName_w file
 			createNewWorld();
@@ -30,13 +30,13 @@ public class World {
 			//if there are files in the worldXMLs directory, try to find specified world
 			//otherwise, false
 			if (worldFolder.listFiles().length != 0) {
-				worldFile = new File(worldFolder
+				setWorldFile(new File(worldFolder
 						+ "/"
 						+ worldName
-						+ "_w");
+						+ "_w"));
 				try {
 					//method returns true if worldFile is found, this determines whether file exists or not.
-					if(worldFile.exists()){
+					if(getWorldFile().exists()){
 						worldFound = true;
 					}
 				} catch (Exception worldNotFound) {}
@@ -63,7 +63,7 @@ public class World {
 				//debug information
 				//TODO: With location information, find relevant information from worldName_w file such as:
 				//objects in location, characters in location, description of loc, traits of loc, name of loc, ect.
-				System.out.println(findLocation(playerFile));
+				GameDriver.playerLoc = findLocation(playerFile);
 			}else{
 				//TODO: If player file is missing or needs to be created.
 			}
@@ -104,5 +104,18 @@ public class World {
 		bis.close();
 		//returns a string containing all the variable information.
 		return locString;
+	}
+	public File getWorldFile() {
+		return worldFile;
+	}
+	/*
+	 * 
+	 * 	@param charLoc			//The location string of character being referred to.
+	 * 
+	 * 
+	 */
+	//Used to determine and find what is avaialble to the related character.
+	public void locationAvailability(String charLoc, ){
+		
 	}
 }

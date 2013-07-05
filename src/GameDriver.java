@@ -2,7 +2,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class GameDriver {
-	static String savedOutput = "", playerName = "";
+	static String savedOutput = "",
+			playerName = "",
+			playerLoc = "";
 
 	final static Window win = new Window();
 
@@ -27,9 +29,12 @@ public class GameDriver {
 		System.out
 				.print("\nAt anytime you may enter \"help\" for the list of available commands.\n");
 		
+		w.worldInit();
+		
 		while (true) {
 			win.scrollUpdate();
-			w.worldInit();
+			w.loadCharacter(w.getWorldFile(), "player");
+			System.out.print(playerLoc);
 			iC.setCommand();
 			uIV.inputVariablesWipe();
 			nB.setNPCCommand();

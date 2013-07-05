@@ -1,4 +1,4 @@
-import java.io.*;
+import java.io.IOException;
 import java.util.ArrayList;
 public class InOutTrans {
 	boolean isSpeak = false; // for parameter determining whether or not is

@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.io.OutputStream;
+
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 public class TextAreaOutputStream extends OutputStream {

@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
 
@@ -17,23 +18,29 @@ public class GameMusic {
 		audioFolder = new File("data/MLTG/audio" + dir);
 		File[] listOfAudioFiles = audioFolder.listFiles();
 
-		iN = new FileInputStream(listOfAudioFiles[grabRanMusicFromFolder()]);
-		aS = new AudioStream(iN);
-	}
-
-	public void musicControl(String comm) throws IOException {
-		if (comm.equals("start")) {
-			AudioPlayer.player.start(aS);
-		} else {
-			if (comm.equals("stop")) {
-				try {
-					AudioPlayer.player.stop(aS);
-				} catch (Exception e) {
-				}
-			}
+		try {
+			iN = new FileInputStream(listOfAudioFiles[grabRanMusicFromFolder()]);
+			aS = new AudioStream(iN);
+		} catch (Exception e) {
+			System.out.print("\nAudio failed to load.\n");
 		}
 	}
-
+	public void musicControl(String comm) throws IOException {
+		try {
+			if (comm.equals("start")) {
+				AudioPlayer.player.start(aS);
+			} else {
+				if (comm.equals("stop")) {
+					try {
+						AudioPlayer.player.stop(aS);
+					} catch (Exception e) {
+					}
+				}
+			}
+		} catch (Exception e) {
+			System.out.print("\nAudio failed to load.\n");
+		}
+	}
 	public int grabRanMusicFromFolder() {
 		RanGen rG = new RanGen();
 

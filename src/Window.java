@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.io.InputStream;
 import java.io.PrintStream;
+
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
