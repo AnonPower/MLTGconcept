@@ -1,5 +1,5 @@
 import java.io.IOException;
-/*
+/*v0.2
  * EffectOutResponse class
  * 	Responsibility: Carry responses from characters from the XML
  */
