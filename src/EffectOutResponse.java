@@ -1,5 +1,5 @@
 import java.io.IOException;
-/*
+/*v0.3
  * EffectOutResponse class
  * 	Responsibility: Carry responses from characters from the XML
  */
@@ -20,13 +20,13 @@ public class EffectOutResponse {
 	 * 		@param 'tIntESub'		Apply substitution
 	 */
 	public String responseInit(	String 	doer,
-															String 	target,
-															String 	targetAttribute,
-															String 	tStrE,
-															String 	tBooE,
-															String	tIntEEqu,
-															int 		tIntEAdd,
-															int 		tIntESub)
+                              String 	target,
+                              String 	targetAttribute,
+                              String 	tStrE,
+                              String 	tBooE,
+                              String	tIntEEqu,
+                              int 		tIntEAdd,
+                              int 		tIntESub)
 	throws IOException, InterruptedException {
 		xP.xMLArraysWipe();
 
