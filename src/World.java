@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.StringTokenizer;
 public class World {
 	private static File worldFile;
@@ -13,7 +12,7 @@ public class World {
 	regionName = "",
 	areaName = "",
 	localName = "";
-	static ArrayList<String>[][][] locationInfo;
+	static String[][] locationInfo = new String[100][3];
 	public void worldInit() throws IOException {
 		worldFolder = new File("data/MLTG/save/worldXMLs");
 		//If specified world is found, load world data from it
@@ -141,7 +140,7 @@ public class World {
 	 */
 	public void locationAvailability(String charLoc) throws IOException{
 		try {
-			clearArrays();
+			clearArray();
 		} catch (NullPointerException npe) {
 		}
 		try {
@@ -149,11 +148,15 @@ public class World {
 					new FileInputStream(worldFile)));
 			String readIn = null;
 			StringTokenizer worldST;
-			int matchingCounter = 0;
+			int counter = 0;
+			boolean isLocalDone = false;
 			do{
 				readIn = bis.readLine();
 				//world information parse
-				if(readIn.contains(getWorldName())){
+				if(readIn.contains(getWorldName()
+						+ "_w")
+						&& readIn.contains("cTo") == false
+						&& readIn.contains("</") == false){
 					do{
 						readIn = bis.readLine();
 						if(readIn.contains("<String>")){
@@ -167,16 +170,18 @@ public class World {
 							readIn = readIn.replace(">", "");
 						}
 						worldST = new StringTokenizer(readIn);
-						worldTagName.add(worldST.nextToken("=")); //tag name get
+						locationInfo[counter][0] = worldST.nextToken("="); //tag name get
 						worldST.nextToken("\""); //scrap
-						worldTagData.add(worldST.nextToken("\"")); //tag data get
-						wTMatch.add(matchingCounter);
-						matchingCounter++;
+						locationInfo[counter][1] = worldST.nextToken("\""); //tag data get
+						locationInfo[counter][2] = "_w";
+						counter++;
 					}while(readIn.contains("<String>") == false);
-					matchingCounter = 0;
 				}
 				//region information parse
-				if(readIn.contains(getRegionName())){
+				if(readIn.contains(getRegionName()
+						+ "_r")
+						&& readIn.contains("cTo") == false
+						&& readIn.contains("</") == false){
 					do{
 						readIn = bis.readLine();
 						if(readIn.contains("_a")){
@@ -190,16 +195,18 @@ public class World {
 							readIn = readIn.replace(">", "");
 						}
 						worldST = new StringTokenizer(readIn);
-						regionTagName.add(worldST.nextToken("=")); //tag name get
+						locationInfo[counter][0] = worldST.nextToken("="); //tag name get
 						worldST.nextToken("\""); //scrap
-						regionTagData.add(worldST.nextToken("\"")); //tag data get
-						rTMatch.add(matchingCounter);
-						matchingCounter++;
+						locationInfo[counter][1] = worldST.nextToken("\""); //tag data get
+						locationInfo[counter][2] = "_r";
+						counter++;
 					}while(readIn.contains("_a") == false);
-					matchingCounter = 0;
 				}
 				//area information parse
-				if(readIn.contains(getAreaName())){
+				if(readIn.contains(getAreaName()
+						+ "_a")
+						&& readIn.contains("cTo") == false
+						&& readIn.contains("</") == false){
 					do{
 						readIn = bis.readLine();
 						if(readIn.contains("_l")){
@@ -213,16 +220,18 @@ public class World {
 							readIn = readIn.replace(">", "");
 						}
 						worldST = new StringTokenizer(readIn);
-						areaTagName.add(worldST.nextToken("=")); //tag name get
+						locationInfo[counter][0] = worldST.nextToken("="); //tag name get
 						worldST.nextToken("\""); //scrap
-						areaTagData.add(worldST.nextToken("\"")); //tag data get
-						aTMatch.add(matchingCounter);
-						matchingCounter++;
+						locationInfo[counter][1] = worldST.nextToken("\""); //tag data get
+						locationInfo[counter][2] = "_a";
+						counter++;
 					}while(readIn.contains("_l") == false);
-					matchingCounter = 0;
 				}
 				//local information parse
-				if(readIn.contains(getLocalName())){
+				if(readIn.contains(getLocalName()
+						+ "_l")
+						&& readIn.contains("cTo") == false
+						&& readIn.contains("</") == false){
 					do{
 						readIn = bis.readLine();
 						if(readIn.contains("</"
@@ -238,15 +247,18 @@ public class World {
 							readIn = readIn.replace(">", "");
 						}
 						worldST = new StringTokenizer(readIn);
-						localTagName.add(worldST.nextToken("=")); //tag name get
+						locationInfo[counter][0] = worldST.nextToken("="); //tag name get
 						worldST.nextToken("\""); //scrap
-						localTagData.add(worldST.nextToken("\"")); //tag data get
-						lTMatch.add(matchingCounter);
-						matchingCounter++;
+						locationInfo[counter][1] = worldST.nextToken("\""); //tag data get
+						locationInfo[counter][2] = "_l";
+						counter++;
 					}while(readIn.contains("</"
 							+ getLocalName()
 							+ "_l>") == false);
-					matchingCounter = 0;
+					isLocalDone = true;
+				}
+				if(isLocalDone){
+					break;
 				}
 			}while(readIn.equals(null) == false);
 			bis.close();
@@ -279,50 +291,7 @@ public class World {
 	public String getLocalName(){
 		return localName;
 	}
-	public ArrayList<String> getWorldTagNameArray(){
-		return worldTagName;
-	}
-	public ArrayList<String> getWorldTagDataArray(){
-		return worldTagData;
-	}
-	public ArrayList<Integer> getWTMatchArray(){
-		return wTMatch;
-	}
-	public ArrayList<String> getRegionTagNameArray(){
-		return regionTagName;
-	}
-	public ArrayList<String> getRegionTagDataArray(){
-		return regionTagData;
-	}
-	public ArrayList<Integer> getRTMatchArray(){
-		return rTMatch;
-	}
-	public ArrayList<String> getAreaTagNameArray(){
-		return areaTagName;
-	}
-	public ArrayList<String> getAreaTagDataArray(){
-		return areaTagData;
-	}
-	public ArrayList<Integer> getATMatchArray(){
-		return aTMatch;
-	}
-	public ArrayList<String> getLocalTagNameArray(){
-		return localTagName;
-	}
-	public ArrayList<String> getLocalTagDataArray(){
-		return localTagData;
-	}
-	public ArrayList<Integer> getLTMatchArray(){
-		return lTMatch;
-	}
-	public void clearArrays(){
-		worldTagName.clear();
-		worldTagData.clear();
-		regionTagName.clear();
-		regionTagData.clear();
-		areaTagName.clear();
-		areaTagData.clear();
-		localTagName.clear();
-		localTagData.clear();
+	public void clearArray(){
+		locationInfo = new String [100][3];
 	}
 }
