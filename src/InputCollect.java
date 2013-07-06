@@ -11,7 +11,8 @@ public class InputCollect {
 		PrintWork pW = new PrintWork();
 		InOutTrans iOT = new InOutTrans();
 		UInVerify uIV = new UInVerify();
-
+		StringMod sM = new StringMod();
+		
 		String commandInput, playerCommand;
 
 		kb = new Scanner(System.in);
@@ -34,11 +35,78 @@ public class InputCollect {
 					continue;
 				} else {
 					if (commandInput.equals("who is here")) {
-						pW.printWhoIsHere("defaults/MLTG/invXMLs/characters");
+						if(GameDriver.who.size() == 1){
+							System.out.print(GameDriver.who.get(0) + " is here.\n");
+						}else{
+							for(int x = 0; x != GameDriver.who.size(); x++){
+								if(x == GameDriver.who.size()-1){
+									System.out.print(" and " + GameDriver.who.get(x) + " are here.\n");
+								}else if(x == GameDriver.who.size()-2){
+									System.out.print(GameDriver.who.get(x));
+								}else{
+									System.out.print(GameDriver.who.get(x) + " ");
+								}
+							}
+						}
 						continue;
 					} else {
 						if (commandInput.equals("what is here")) {
-							pW.printWhatIsHere("defaults/MLTG/invXMLs/objects");
+							if(GameDriver.whatDyn.size() != 0)
+							{
+								if(sM.ifStartsWithVowel(GameDriver.whatDyn.get(0))){
+									System.out.print("An ");
+								}else{
+									System.out.print("A ");
+								}
+							}
+							if(GameDriver.whatDyn.size() == 1){
+								System.out.print(GameDriver.whatDyn.get(0) + " is here.\n");
+							}else{
+								for(int x = 0; x != GameDriver.whatDyn.size(); x++){
+									if(x == GameDriver.whatDyn.size()-1){
+										if(sM.ifStartsWithVowel(GameDriver.whatDyn.get(x))){
+											System.out.print(" and an " + GameDriver.whatDyn.get(x) + " is here.\n");
+										}else{
+											System.out.print(" and a " + GameDriver.whatDyn.get(x) + " is here.\n");
+										}
+									}else if(x == GameDriver.whatDyn.size()-2){
+										System.out.print(GameDriver.whatDyn.get(x));
+									}else{
+										System.out.print(GameDriver.whatDyn.get(x) + " ");
+									}
+								}
+							}
+							if(GameDriver.whatDyn.size() > 0)
+							{
+								if(sM.ifStartsWithVowel(GameDriver.whatSta.get(0))){
+									System.out.print("Also, an ");
+								}else{
+									System.out.print("Also, a ");
+								}
+							}else{
+								if(sM.ifStartsWithVowel(GameDriver.whatSta.get(0))){
+									System.out.print("An ");
+								}else{
+									System.out.print("A ");
+								}
+							}
+							if(GameDriver.whatSta.size() == 1){
+								System.out.print(GameDriver.whatSta.get(0) + " is here.\n");
+							}else{
+								for(int x = 0; x != GameDriver.whatSta.size(); x++){
+									if(x == GameDriver.whatSta.size()-1){
+										if(sM.ifStartsWithVowel(GameDriver.whatSta.get(x))){
+											System.out.print(" and an " + GameDriver.whatSta.get(x) + " is here.\n");
+										}else{
+											System.out.print(" and a " + GameDriver.whatSta.get(x) + " is here.\n");
+										}
+									}else if(x == GameDriver.whatSta.size()-2){
+										System.out.print(GameDriver.whatSta.get(x));
+									}else{
+										System.out.print(GameDriver.whatSta.get(x) + " ");
+									}
+								}
+							}
 							continue;
 						} else {
 							if (commandInput.equals("player.change.name")) {

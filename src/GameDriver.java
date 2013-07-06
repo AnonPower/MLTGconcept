@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GameDriver {
@@ -10,6 +11,15 @@ public class GameDriver {
 
 	private static Scanner kb;
 
+	public static String worldDescLoad,
+								   regionDescLoad,
+								   areaDescLoad,
+								   localDescLoad;
+	public static ArrayList<String> who,
+											  whatDyn,
+											  whatSta,
+											  connections;
+	
 	public static void main(String[] args) throws IOException,
 			InterruptedException {
 		win.windowInit();
@@ -34,13 +44,20 @@ public class GameDriver {
 		while (true) {
 			win.scrollUpdate();
 			w.loadCharacter(w.getWorldFile(), "player");
+			worldDescLoad = w.getWorldDesc();
+			regionDescLoad = w.getRegionDesc();
+			areaDescLoad = w.getAreaDesc();
+			localDescLoad = w.getLocalDesc();
+			who = (w.getWhoIsHere());
+			whatDyn = (w.getDynamicObjects());
+			whatSta = (w.getStaticObjects());
+			connections = (w.getConnections());
 			iC.setCommand();
 			uIV.inputVariablesWipe();
 			nB.setNPCCommand();
 			savedOutput = "";
 		}
 	}
-
 	public static void setPlayerName() {
 		PrintWork pW = new PrintWork();
 

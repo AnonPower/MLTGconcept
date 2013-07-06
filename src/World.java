@@ -4,15 +4,24 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 public class World {
-	private static File worldFile;
-	static File worldFolder;
-	static String worldName = "",
+	private File worldFile;
+	File worldFolder;
+	String worldName = "",
 	regionName = "",
 	areaName = "",
 	localName = "";
-	static String[][] locationInfo = new String[100][3];
+	String[][] locationInfo = new String[100][3];
+	public String worldDesc = null,
+			   regionDesc = null,
+			   areaDesc = null,
+			   localDesc = null;
+	public ArrayList<String> whoIsHere = new ArrayList<String>(),
+									connections = new ArrayList<String>(),
+									staticObjects = new ArrayList<String>(),
+									dynamicObjects = new ArrayList<String>();
 	public void worldInit() throws IOException {
 		worldFolder = new File("data/MLTG/save/worldXMLs");
 		//If specified world is found, load world data from it
@@ -70,6 +79,7 @@ public class World {
 				//objects in location, characters in location, description of loc, traits of loc, name of loc, ect.
 				GameDriver.characterLoc = findLocation(characterFile);
 				locationAvailability(GameDriver.characterLoc);
+				exportLocationInfo();
 			}else{
 				//TODO: If player file is missing or needs to be created.
 			}
@@ -140,7 +150,7 @@ public class World {
 	 */
 	public void locationAvailability(String charLoc) throws IOException{
 		try {
-			clearArray();
+			clearArrays();
 		} catch (NullPointerException npe) {
 		}
 		try {
@@ -267,6 +277,135 @@ public class World {
 			System.exit(003);
 		}
 	}
+	/*
+	 * 	Pnoy
+	 * 	exportLocationInfo()
+	 * 	//Used to load location availability information for calling class or instance.
+	 */
+	public void exportLocationInfo(){
+		for(int x = 0; x != 100; x++){
+			try {
+				if(locationInfo[x][0].equals(null)){
+					break;
+				}
+			} catch (NullPointerException npe) {
+				break;
+			}
+			switch(locationInfo[x][2]){
+				case "_w":{
+					if(locationInfo[x][0].equals("description")){
+						worldDesc = locationInfo[x][1];
+					}
+					break;
+				}
+					
+				case "_r":{
+					if(locationInfo[x][0].equals("description")){
+						regionDesc = locationInfo[x][1];
+					}
+					break;
+				}
+					
+				case "_a":{
+					if(locationInfo[x][0].equals("description")){
+						areaDesc = locationInfo[x][1];
+					}
+					break;
+				}
+					
+				case "_l":{
+					if(locationInfo[x][0].equals("description")){
+						localDesc = locationInfo[x][1];
+						continue;
+					}
+					if(locationInfo[x][0].equals("cTo")){
+						parseElement(locationInfo[x][1], "&", 0);
+						continue;
+					}
+					if(locationInfo[x][0].equals("what-dyn")){
+						parseElement(locationInfo[x][1], "_", 1);
+						continue;
+					}
+					if(locationInfo[x][0].equals("what-sta")){
+						parseElement(locationInfo[x][1], "_", 2);
+						continue;
+					}
+					if(locationInfo[x][0].equals("whoIs")){
+						parseElement(locationInfo[x][1], "_", 3);
+						continue;
+					}
+					break;
+				}
+				default:break;
+			}
+		}
+	}
+	/*
+	 * 	Pnoy
+	 * 	parseElement()
+	 * 	//Used to parse data strings from xmls that may contain tokens
+	 * 
+	 * 	@param		String inc		//the data string read in from the XML to be parsed
+	 * 	@param		String token	//the delim for the tokenizer
+	 * 	@param		int type	//used to determine which array to be stored in, to be revised
+	 */
+	public void parseElement(String inc, String token, int type){
+		switch(type){
+			case 0:{
+				if(inc.contains(token)){
+					StringTokenizer st = new StringTokenizer(inc);
+					try {
+						while(st.hasMoreTokens()){
+							connections.add(st.nextToken(token));
+						}
+					} catch (NullPointerException npe) {}
+				}else{
+					connections.add(inc);
+				}
+				break;
+			}
+			case 1:{
+				if(inc.contains(token)){
+					StringTokenizer st = new StringTokenizer(inc);
+					try {
+						while(st.hasMoreTokens()){
+							dynamicObjects.add(st.nextToken(token));
+						}
+					} catch (NullPointerException npe) {}
+				}else{
+					dynamicObjects.add(inc);
+				}
+				break;
+			}
+			case 2:{
+				if(inc.contains(token)){
+					StringTokenizer st = new StringTokenizer(inc);
+					try {
+						while(st.hasMoreTokens()){
+							staticObjects.add(st.nextToken(token));
+						}
+					} catch (NullPointerException npe) {}
+				}else{
+					staticObjects.add(inc);
+				}
+				break;
+			}
+			case 3:{
+				if(inc.contains(token)){
+					StringTokenizer st = new StringTokenizer(inc);
+					try {
+						while(st.hasMoreTokens()){
+							whoIsHere.add(st.nextToken(token));
+						}
+					} catch (NullPointerException npe) {}
+				}else{
+					whoIsHere.add(inc);
+				}
+				break;
+			}
+			default:break;
+		}
+	}
 	public void setWorldName(String inc){
 		worldName = inc;
 	}
@@ -291,7 +430,35 @@ public class World {
 	public String getLocalName(){
 		return localName;
 	}
-	public void clearArray(){
+	public String getWorldDesc(){
+		return worldDesc;
+	}
+	public String getRegionDesc(){
+		return regionDesc;
+	}
+	public String getAreaDesc(){
+		return areaDesc;
+	}
+	public String getLocalDesc(){
+		return localDesc;
+	}
+	public ArrayList<String> getConnections(){
+		return connections;
+	}
+	public ArrayList<String> getDynamicObjects(){
+		return dynamicObjects;
+	}
+	public ArrayList<String> getStaticObjects(){
+		return staticObjects;
+	}
+	public ArrayList<String> getWhoIsHere(){
+		return whoIsHere;
+	}
+	public void clearArrays(){
 		locationInfo = new String [100][3];
+		connections = new ArrayList<String>();
+		dynamicObjects = new ArrayList<String>();
+		staticObjects = new ArrayList<String>();
+		whoIsHere = new ArrayList<String>();
 	}
 }

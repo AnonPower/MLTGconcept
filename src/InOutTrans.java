@@ -680,7 +680,7 @@ public class InOutTrans {
 						bO.saveOutput(response);
 						System.out.print(response);
 					}
-				} catch (Exception e) {
+				} catch (NullPointerException npe) {
 				}
 			}
 		}

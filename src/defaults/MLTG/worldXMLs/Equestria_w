@@ -16,7 +16,8 @@
 				<bedroom_l>
 					<name="bedroom">
 					<description="a bedroom.">
-					<cTo="bathroom_l&closet_l&balcony_l&library_l">
+					<cTo="bathroom_l&closet_l&balcony_l&library_l&">
+					<whoIs="Twilight Sparkle">
 				</bedroom_l>
 				<closet_l>
 					<name="closet">
@@ -31,14 +32,15 @@
 				<library_l>
 					<name="library">
 					<description="a library.">
-					<cTo="bedroom_l&kitchen_l&basement_l">
-					<what-dyn="apple_ball">
+					<cTo="bedroom_l&kitchen_l&basement_l&">
+					<what-dyn="apple_ball_">
 					<what-sta="podium">
+					<whoIs="Twilight Sparkle_player_">
 				</library_l>
 				<kitchen_l>
 					<name="kitchen">
 					<description="a kitchen.">
-					<cTo="library_l&pantry_l">
+					<cTo="library_l&pantry_l&">
 				</kitchen_l>
 				<pantry_l>
 					<name="pantry">
