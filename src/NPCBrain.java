@@ -35,7 +35,7 @@ public class NPCBrain {
 		xP.xMLParser("defaults/MLTG/invXMLs/commands");
 		ArrayList<String> commandList = new ArrayList<String>(xP.getTStrD());
 		toRemove.add("system.clear");
-		toRemove.add("system.quit");
+		toRemove.add("system.quit.game");
 		toRemove.add("what is here");
 		toRemove.add("who is here");
 		toRemove.add("player.change name");

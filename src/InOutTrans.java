@@ -136,10 +136,6 @@ public class InOutTrans {
 									// end print command
 								} else {
 									// command + useLinking + char = command
-									// effects char (for now, useLinking
-									// ignored, special exceptions to be
-									// included, i.e. fuck with twilight
-									// sparkle)
 
 									// print command
 									output = bO.buildCommOut(commandIn, output,

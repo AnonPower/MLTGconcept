@@ -166,7 +166,7 @@
 		<system>
 			<player>
 				<command="system.clear">
-				<command="system.quit">
+				<command="system.quit.game">
 				<command="what is here">
 				<command="who is here">
 				<command="player.change name">

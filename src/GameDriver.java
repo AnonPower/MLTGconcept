@@ -48,10 +48,10 @@ public class GameDriver {
 			regionDescLoad = w.getRegionDesc();
 			areaDescLoad = w.getAreaDesc();
 			localDescLoad = w.getLocalDesc();
-			who = (w.getWhoIsHere());
-			whatDyn = (w.getDynamicObjects());
-			whatSta = (w.getStaticObjects());
-			connections = (w.getConnections());
+			who = w.getWhoIsHere();
+			whatDyn = w.getDynamicObjects();
+			whatSta = w.getStaticObjects();
+			connections = w.getConnections();
 			iC.setCommand();
 			uIV.inputVariablesWipe();
 			nB.setNPCCommand();

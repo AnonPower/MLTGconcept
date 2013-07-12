@@ -19,9 +19,9 @@ public class World {
 			   areaDesc = null,
 			   localDesc = null;
 	public ArrayList<String> whoIsHere = new ArrayList<String>(),
-									connections = new ArrayList<String>(),
-									staticObjects = new ArrayList<String>(),
-									dynamicObjects = new ArrayList<String>();
+											  connections = new ArrayList<String>(),
+											  staticObjects = new ArrayList<String>(),
+											  dynamicObjects = new ArrayList<String>();
 	public void worldInit() throws IOException {
 		worldFolder = new File("data/MLTG/save/worldXMLs");
 		//If specified world is found, load world data from it

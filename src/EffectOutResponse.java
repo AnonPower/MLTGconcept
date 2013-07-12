@@ -191,12 +191,12 @@ public class EffectOutResponse {
 		return response;
 	}
 	
-	//serious 		response	--	new
-	//angry 			response	--	bad or good or neutral
+	//serious 			response	--	new
+	//angry 				response	--	bad or good or neutral
 	//sad					response	--	bad or good or neutral
 	//happy				response	--	bad or good or neutral
 	//proud				response	--	bad or good or neutral
 	//naive				response	--	bad or good or neutral
-	//determined	response	--
+	//determined		response	--
 	
 }

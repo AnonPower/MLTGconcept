@@ -8,6 +8,7 @@
 			<library-1_a>
 				<name="library-1">
 				<description="Ponyville's library, built into a big tree.">
+				<owner="Twilight Sparkle">
 				<bathroom_l>
 					<name="bathroom">
 					<description="a bathroom.">
@@ -17,7 +18,6 @@
 					<name="bedroom">
 					<description="a bedroom.">
 					<cTo="bathroom_l&closet_l&balcony_l&library_l&">
-					<whoIs="Twilight Sparkle">
 				</bedroom_l>
 				<closet_l>
 					<name="closet">
