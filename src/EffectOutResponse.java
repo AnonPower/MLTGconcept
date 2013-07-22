@@ -5,10 +5,9 @@ import java.io.IOException;
  */
 import java.util.ArrayList;
 public class EffectOutResponse {
-	XMLParse 	xP	= new XMLParse();
-	Attributes 	attrib 	= new Attributes();
-	static StringBuilder	sB	= new StringBuilder();
-	static private 	String 	expt;
+			XMLParse 		xP 		= new XMLParse();
+			Attributes 		attrib 	= new Attributes();
+	static	StringBuilder	sB		= new StringBuilder();
 
 	/*
 	 * Response Initiation
@@ -24,13 +23,13 @@ public class EffectOutResponse {
 	 * 		@param 'tIntESub'		Apply substitution
 	 */
 	public 	String responseInit(String 	doer,
-					String 	target,
-					String 	targetAttribute,
-					String 	tStrE,
-					String 	tBooE,
-					String	tIntEEqu,
-					int 		tIntEAdd,
-					int 		tIntESub)
+							String 	target,
+							String 	targetAttribute,
+							String 	tStrE,
+							String 	tBooE,
+							String	tIntEEqu,
+							int 	tIntEAdd,
+							int 	tIntESub)
 	throws IOException, InterruptedException {
 		xP.xMLArraysWipe();
 
@@ -41,11 +40,11 @@ public class EffectOutResponse {
 		Relations 	rel 		= new Relations();
 		
 		int change = vW.determineRelationChange(targetAttribute,
-									tStrE,
-									tBooE,
-									tIntEEqu,
-									tIntEAdd, 
-									tIntESub);
+											tStrE,
+											tBooE,
+											tIntEEqu,
+											tIntEAdd, 
+											tIntESub);
 		if (change == 0) {
 			//If nothing is changed, give out a neutral response
 			responseOut = neutralResponse(doer, target);
@@ -53,24 +52,24 @@ public class EffectOutResponse {
 			if (change > 0) {
 				//If there is a positive change, Give a good response!
 				responseOut = goodResponse(	doer,
-								target,
-								targetAttribute,
-								tStrE,
-								tBooE,
-								tIntEEqu,
-								tIntEAdd,
-								tIntESub);
+										target,
+										targetAttribute,
+										tStrE,
+										tBooE,
+										tIntEEqu,
+										tIntEAdd,
+										tIntESub);
 			} else {
 				if (change < 0) {	
 					//If there is a negative change, Give a bad response!
 					responseOut = badResponse(	doer,
-									target,
-									targetAttribute,
-									tStrE,
-									tBooE,
-									tIntEEqu, 
-									tIntEAdd,
-									tIntESub);
+											target,
+											targetAttribute,
+											tStrE,
+											tBooE,
+											tIntEEqu, 
+											tIntEAdd,
+											tIntESub);
 				}
 			}
 		}
@@ -105,13 +104,13 @@ public class EffectOutResponse {
 	 * 									by player or NPC
 	 */
 	public String goodResponse(	String 	doer,
-					String 	target,
-					String 	targetAttribute,
-					String 	tStrE,
-					String 	tBooE,
-					String 	tIntEEqu,
-					int 		tIntEAdd,
-					int 		tIntESub )
+							String 	target,
+							String 	targetAttribute,
+							String 	tStrE,
+							String 	tBooE,
+							String 	tIntEEqu,
+							int 	tIntEAdd,
+							int 	tIntESub )
 	throws IOException, InterruptedException {
 		float calc;
 		String response;
@@ -146,13 +145,13 @@ public class EffectOutResponse {
 	 * 									by player or NPC
 	 */
 	public String badResponse(	String 	doer,
-					String 	target,
-					String 	targetAttribute,
-					String 	tStrE,
-					String 	tBooE,
-					String 	tIntEEqu,
-					int 		tIntEAdd,
-					int 		tIntESub ) 
+							String 	target,
+							String 	targetAttribute,
+							String 	tStrE,
+							String 	tBooE,
+							String 	tIntEEqu,
+							int 	tIntEAdd,
+							int 	tIntESub ) 
 	throws IOException, InterruptedException {
 		String response;
 		if (doer.equals(target)) {
@@ -204,12 +203,12 @@ public class EffectOutResponse {
 	 */
 	public void wordChoice(String input,String question,String effectiveWord,String context){
 		//simplify
-		String 	in 		= input;
-		String 	ques	= question;
-		String 	eW		= effectiveWord;
-		String 	cox 	= context;
+		String 	in 			= input;
+		String 	ques 		= question;
+		String 	eW			= effectiveWord;
+		String 	cox 		= context;
 		
-		boolean isQ 		= false;
+		boolean isQ 		= isQuestion(input);
 		float 	relation 	= (float) 0.0;	//bad-good type of determination
 		
 		if(relation>50.0){
@@ -223,45 +222,57 @@ public class EffectOutResponse {
 		}else{
 			relation = (float) 0.0;
 		}
-		
-		if(question != null){
-			input.toLowerCase();		//fix typos
+	}
+	
+	public void wordEffectivity(String input){
+		String[] inputArr = explode(input," ");
+		/*
+		 * Check from XML and see <effective> words to
+		 * evaluate different kinds of words
+		 * and their value of what kind of feeling the words
+		 * give and have.
+		 *
+		 * i.e. 'Hate' Strong words, from weak-strong 60%
+		 * 		If used out of context it loses its percentage 20% (lel)
+		 */
+	}
+	
+	public void contextChoice(String input){
+		String[] inputArr = explode(input," ");
+		/*
+		 * Check from XML and see about <context> words and
+		 * evaluate
+		 */
+	}
+	
+	/*
+	 * Decides if it's a question or not.
+	 * 	#String
+	 * 		@param	'input'	Given String sentence.
+	 * 
+	 * 		@return	'isQ'	Boolean false/true
+	 */
+	public boolean isQuestion(String input){
+		//Only for checking the last "?" to see if it is a question.
+		String[] inputArr = explode(input," ");
+		boolean isQ=false;
+			input.toLowerCase();		//fix typos. Upper/lower
 			if(	input.contains("what")
 			||	input.contains("who")
 			||	input.contains("why")
 			||	input.contains("when")
 			||	input.contains("which")
 			||	input.contains("how")){
+				
 				isQ = true;
+				
+			}else if(inputArr[inputArr.length-1].contains("?")){
+				isQ=true;
 			}else{
 				isQ = false;
 			}
-			//if there's no question, ask something
-				//If does not have
-					//WHO
-					//WHAT
-					//WHY
-					//WHEN
-					//WHICH
-					//HOW
-			//it is not a question. Exceptions may varie in a library of question-like
-			//sarting words, or if ends with a "?"
-		}else{
-			//if it's a question, answer with something related.
 			
-			//determine if the question is good/bad
-			//Use from the library
-					//WHO
-					//WHAT
-					//WHY
-					//WHEN
-					//WHICH
-					//HOW
-			//Relate to what will happen after getting these, and generate a sentence
-			//related to the context of these words.
-				//If some other form of question, use a different method of answering.
-			//NOTICE: If ends with a "?" it is a question. Exceptions may varie.
-		}
+		return isQ;
 	}
 	/*v0.1
 	 * Mood detection of words
@@ -277,10 +288,6 @@ public class EffectOutResponse {
 		//context = toWords(context);	
 	}
 	
-	///////////////////////////////////////////////////////
-	//////Other programs can use these functions too.//////
-	///////////////////////////////////////////////////////
-	
 	/*
 	 * Sets a string into an array
 	 * Name inspiration by PHP
@@ -291,7 +298,6 @@ public class EffectOutResponse {
 	 * 		@return	'explode'	Returns the final split array
 	 */
 	public static String[] explode(String str,String exception){
-		expt = exception;
 		String[] explode = str.split(exception);
 		for(int i =0;i< explode.length;i++){
 			sB.append(explode[i]);
@@ -312,14 +318,6 @@ public class EffectOutResponse {
 	 * 		@return	'implode'	Returns the final appended string
 	 */
 	public static String implode(String[] arr,String exception){
-		//Get String from global var. If not safe, please make a new method!
-		//Functions would be eh, but this is OK for now.
-		exception = expt;
-		if((exception==null)
-		|| (exception=="")){
-			//Set to [space] spacing if there is nothing.
-			exception=" ";
-		}
 		String implode="";
 		for(int i=0;i<arr.length;++i){
 			if(i==arr.length-1){
@@ -332,15 +330,6 @@ public class EffectOutResponse {
 		
 	}
 	
-<<<<<<< HEAD
-	//serious 			response	--	new
-	//angry 				response	--	bad or good or neutral
-	//sad					response	--	bad or good or neutral
-	//happy				response	--	bad or good or neutral
-	//proud				response	--	bad or good or neutral
-	//naive				response	--	bad or good or neutral
-	//determined		response	--
-=======
 	//serious 		response	--	new
 	//angry 		response	--	bad or good or neutral
 	//sad			response	--	bad or good or neutral
@@ -348,6 +337,5 @@ public class EffectOutResponse {
 	//proud			response	--	bad or good or neutral
 	//naive			response	--	bad or good or neutral
 	//determined	response	--
->>>>>>> d9c24faf6ffcf5e87cccd55faaf513f10b8ee9e5
 	
 }
